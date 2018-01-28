@@ -1,0 +1,26 @@
+
+-- 安装 centos
+
+    https://gist.github.com/melvincabatuan/350f86611bc012a5c1c6
+
+    yum -y install texlive texlive-*.noarch
+	
+-- 这里有个Makefile 以此为蓝本
+   https://gist.github.com/jez/b248a409d19c9f1c94cd
+   同时也发现 需要使用命令 pdflatex 来生成pdf 
+
+
+   这样也可以  http://blog.csdn.net/u014682350/article/details/46482477
+   1、tex——dvi
+
+   命令：latex XX.tex
+
+   其中，XX为编辑文件名
+
+   2、dvi——pdf
+
+   命令：dvipdfm XX.dvi
+
+
+
+
