@@ -11,7 +11,7 @@ $(LATEXPDFS): %.pdf: %.tex
 	pdflatex -interaction nonstopmode $(patsubst %.pdf,%.tex,$@)
 
 clean:
-	rm *.aux *.log *.pdf || true
+	rm *.aux *.log *.pdf *.toc || true
 
 veryclean: clean
 	rm $(TARGET).pdf
