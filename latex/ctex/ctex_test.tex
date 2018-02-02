@@ -1,0 +1,26 @@
+\documentclass{article}
+% 这样报错
+%\usepackage{ctex}
+\usepackage{xeCJK}
+
+% 可以使用 搜的到的所有字体
+% 如果在这里 ctex-xecjk-winfonts.def 定义了 可以直接用 
+% 否则查看 字体目录下 全名引用
+% StephenSun@debian-1:/usr/share/fonts/win$ ls kaiu.ttf 
+% kaiu.ttf
+% \setCJKmainfont{kaiu.ttf}
+%\setCJKmainfont{WenQuanYi Micro Hei}
+%\setCJKmainfont{FangSong}
+
+% 必须是合适的字体 不然显示错误
+% StephenSun@debian-1:/usr/share/fonts/win$ ls simsun.ttc 
+% simsun.ttc
+\setCJKmainfont{SimSun}
+\begin{document}
+%\begin{frame}
+   \begin{equation}
+   E = mc^{2}
+   \end{equation}
+文章内容
+%\end{frame}
+\end{document}
