@@ -1,0 +1,146 @@
+
+\documentclass{article}
+\usepackage{CJKutf8}
+ 
+\begin{document}
+
+\begin{CJK}{UTF8}{gbsn}
+  Hello World!
+  可以输入中文
+  %符号表  https://reu.dimacs.rutgers.edu/Symbols.pdf
+  符号表  https://reu.dimacs.rutgers.edu/Symbols.pdf
+  $\equiv$
+
+  $\alpha$
+
+  $  \log|x||y|b $
+
+  $  \log\left|x\right|\left|y\right|b $
+
+  % https://tex.stackexchange.com/questions/43008/absolute-value-symbols
+  $  \log\mathopen|x\mathclose|\mathopen|y\mathclose|b $
+\end{CJK}
+
+
+% http://blog.csdn.net/bensnake/article/details/43279329
+\begin{CJK}{UTF8}{gkai}  
+这是一个楷体中文测试，处理简体字。  
+\end{CJK}  
+\begin{CJK}{UTF8}{gbsn}  
+这是一个宋体中文测试，处理简体字。  
+\end{CJK}  
+\begin{CJK}{UTF8}{bkai}  
+這是一個big5編碼的楷體中文測試，處理繁體文字。  
+\end{CJK}  
+\begin{CJK}{UTF8}{bsmi}  
+這是一個个big5編碼的明體中文測試，處理繁體文字。  
+\end{CJK}  
+
+${-b\pm\sqrt{b^2-4ac} \over {2a}}$
+
+\({-b\pm\sqrt{b^2-4ac} \over {2a}}\)
+
+
+I can write math equation in line with text, for example: $E=mc^2$. Just wrap the equation with two dollar sign.
+
+Or we can use \(E=mc^2\), or \begin{math}E=mc^2\end{math}       % 除了使用$...$美元符号，还可以使用命令\(...\)或者math环境\begin{math}...\end{math}
+
+\section{Displayed formula}
+The displayed formula is not in line and get numbered, I can use the equation environment:      % 单独占据整行居中展示出来的，称为显示数学公式，或行间公式、列表公式
+\begin{equation}
+-\frac{\hbar^2}{2m}\frac{d^2\Psi}{dx^2}=E\Psi       % 这种方式带编号，下面另外几种方式不带编号
+\end{equation}
+
+
+
+Or I can use four dollar sign: $$E=mc^2$$       % 或者使用\[...\]命令，以及displaymath环境
+
+Or we can use
+\[
+E=mc^2      % 为了使代码更清晰，建议把公式单独放一行，也可以\[E=mc^2\]
+\]
+
+Or
+\begin{displaymath}
+E=mc^2
+\end{displaymath}
+
+
+\section{Symbols}
+\subsection{Alphabet and normal symbol}
+The default math fonts use mathnormal:
+
+the Latin alphabet:     % 拉丁字符
+$$a b c d e f g h i j k l m n o p q r s t u v w x y z 1 2 3 4 5 6 7 8 9 0$$
+
+$$\mathnormal{x y z}$$
+
+the Greek alphabet:     % 希腊字符
+\[
+\alpha \beta \gamma \delta \eta \theta \lambda \mu \pi \sigma \phi \tau \omega \psi \phi
+\]
+
+Here is a list of frequently used math symbols: 
+
+$\angle A = \pi / 2$, 
+$\pi = 180^\circ$,      % latex默认的数学字体中没有专用于表示角度的符号，自然也没有这个命令，所以通过上标输入
+$f \circ g$,        % \circ是一个通常用来表示函数复合的二元运算符
+$x+y$,      % 即使是简单的x+y，也应该用数学模式
+
+compared with normal text: x+y  ,   % 在数学模式下，符号会使用单独的字体，字母通常是倾斜的意大利体，数字和符号则是直立体。甚至数学符号之间的距离也与一般的水平模式不同。
+
+$\mathrm{e}^{\pi\mathrm{i}} + 1 = 0$
+
+\subsection{Math operator}
+\[
+\int f(x) \, \mathrm{d} x       % 注意积分式的写法，微分算子d应该使用直立罗马体，后面的变量仍是默认的意大利体，并且用\.与前面的被积函数分开
+\]
+
+\[
+\cos 2x = \cos(x+x) = \cos^2 x - \sin^2 x
+\]
+
+
+\section{Structures}
+Math formula is not just about symbols, it has structures.
+\subsection{Superscript and Subscript}
+$A_{ij}=2^{i+j}$, $v_0 = v_1 + v_2$, $c^2 = a^2 + b^2$      % 当上标下标多于一个字符时，需要使用分组确定上下标范围
+
+$$A_i^k = B^k_i$$       % 上下标同时使用，互不影响
+
+$$K_{n_i} = K_{2^i} = 2^{n_i} = 2^{2^i}$$       % 嵌套使用上下标时，外层一定要使用分组
+
+\[
+a = a', b_0' = b_0'', {c'}^2 = (c')^2       % 撇号是一种特殊的上标，可以与下标混用，可以连续使用（普通的上标不能连续使用），但不能与上标直接混用
+\]
+
+\[
+\max_n f(n) = \sum_{i=0}^n A_i          % 在显示公式中，多数数学算子的上下标是在正上或正下方
+\]
+
+$\max_n f(n) = \sum_{i=0}^n A_i$        % 注意在行内公式（inline formula）中，为了避免过于拥挤或产生难看的行距，所有算子的上下标也都在角标的位置了
+
+\subsection{Fraction}
+\[
+\frac {1}{2} + \frac {1}{a} = \frac{2+a}{2a}
+\]
+
+$\frac {1}{2} + \frac {1}{a} = \frac {2+a}{2a}$     % 在行内公式和显示公式中，分式的大小是不同的
+
+\subsection{Other Structure}
+braces, squares, matrix, etc.
+
+\section{Examples}
+The lateral resolution of a microscope:
+%$$r_{lat} = \frac {0.61 \lambda}{\text{NA}}$$
+%%
+%%The axial resolution of a microscope:
+%%$$r_{axi} = \frac {2 \lambda \eta}{(\text{NA})^2}$$
+
+\end{document}
+
+
+
+
+
+

@@ -1,7 +1,7 @@
 # NOTE: Change "written" to the name of your TeX file with no extension
 #
 # #https://reu.dimacs.rutgers.edu/Symbols.pdf 
-TARGET=helloworld formula chinese
+TARGET=helloworld formula chinese formula1
 
 all: $(patsubst %, %.pdf, $(TARGET))
 
