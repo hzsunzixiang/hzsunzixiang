@@ -10,22 +10,32 @@
 
 
     sudo aptitude install texlive-full
+
+	安装完毕这个之后 
+	sudo fc-list :lang=zh
+		此时无任何 中文字体
+
 - msttcorefonts
+    # 这不貌似 用处不大 
     https://tex.stackexchange.com/questions/160666/how-can-i-install-a-chinese-font-in-a-ubuntu-13-10-in-a-way-that-xelatex-can-see
 	安装一些字体
 	sudo aptitude install msttcorefonts
     msttcorefonts 这个包下面有一些字体 但是不全 
     需要从windows下拷贝
 - 从window下拷贝字体 到
+   # 最重要是这步
 
-  sudo mkdir /usr/share/fonts/win/
-  sudo cp Fonts/*  /usr/share/fonts/win/
-  sudo fc-cache 
-  # 注意修改权限 否则无法显示
-  sudo chmod 755 -R /usr/share/fonts/win/ 
-  sudo fc-list :lang=zh
+    sudo mkdir /usr/share/fonts/win/
+    sudo cp Fonts/*  /usr/share/fonts/win/
+	# 现在就可以展示出来了 如果还没有 就调用 fc-cache
+	sudo fc-list :lang=zh
+    sudo fc-cache 
+    # 注意修改权限 否则无法显示
+    sudo chmod 755 -R /usr/share/fonts/win/ 
+    sudo fc-list :lang=zh
 
 
+到此为止 就可以编译通过了
 
  参考
   http://bbs.ctex.org/forum.php?mod=viewthread&tid=70874
@@ -58,7 +68,7 @@
     $ fc-list
     或者只查看中文的字体
     
-    $ fc-list ：lang=zh
+    $ fc-list :lang=zh
     如果能看到想要的中文字体，就可以了。至此，准备工作已经结束。
 
 
