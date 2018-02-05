@@ -37,6 +37,27 @@
 
 到此为止 就可以编译通过了
 
+
+- 如果仍然有几个字体没有 可以搜索 下载
+    StephenSun@debian:~/hzsunzixiang.github.io/latex/ctex_study$ sudo aptitude search wqy
+    p   fonts-wqy-microhei                                                                     - Sans-serif style CJK font derived from Droid
+    p   fonts-wqy-zenhei                                                                       - "WenQuanYi Zen Hei" A Hei-Ti Style (sans-serif) Chinese font
+    p   ttf-wqy-microhei                                                                       - transitional dummy package
+    p   ttf-wqy-zenhei                                                                         - transitional dummy package
+    p   xfonts-wqy                                                                             - WenQuanYi Bitmap Song CJK font for X
+    
+    sudo  aptitude install  fonts-wqy-microhei fonts-wqy-zenhei   ttf-wqy-microhei    ttf-wqy-zenhei
+
+
+    StephenSun@debian:~/hzsunzixiang.github.io/latex/ctex$ sudo fc-list :lang=ZH |grep wqy
+    /usr/share/fonts/truetype/wqy/wqy-microhei.ttc: WenQuanYi Micro Hei,文泉驛微米黑,文泉驿微米黑:style=Regular
+    /usr/share/fonts/truetype/wqy/wqy-zenhei.ttc: WenQuanYi Zen Hei,文泉驛正黑,文泉驿正黑:style=Regular
+    /usr/share/fonts/truetype/wqy/wqy-zenhei.ttc: WenQuanYi Zen Hei Sharp,文泉驛點陣正黑,文泉驿点阵正黑:style=Regular
+    /usr/share/fonts/truetype/wqy/wqy-zenhei.ttc: WenQuanYi Zen Hei Mono,文泉驛等寬正黑,文泉驿等宽正黑:style=Regular
+    /usr/share/fonts/truetype/wqy/wqy-microhei.ttc: WenQuanYi Micro Hei Mono,文泉驛等寬微米黑,文泉驿等宽微米黑:style=Regular
+
+
+
  参考
   http://bbs.ctex.org/forum.php?mod=viewthread&tid=70874
   看来问题已经解决差不多了，其实字体问题貌似没有那么复杂。但我觉得根本没有必要折腾那么多，字体直接从windows上复制过来，fc-cache之后XeTeX调用（使用字体名）起来几乎没有问题，至今只遇到过一个方正的字体和一个毛泽东字体需要折腾一下。
