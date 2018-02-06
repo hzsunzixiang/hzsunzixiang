@@ -1,7 +1,7 @@
 # NOTE: Change "written" to the name of your TeX file with no extension
 #
 # #https://reu.dimacs.rutgers.edu/Symbols.pdf 
-TARGET=chinese helloworld page_number maketitle structure packages  image_5 tablecontents hyperref_17 tables_9 #plot_11 
+TARGET=chinese helloworld page_number maketitle structure packages  image_5 tablecontents hyperref_17 tables_9 table_10 plot_11  draw_12
 
 all: $(patsubst %, %.pdf, $(TARGET))
 
