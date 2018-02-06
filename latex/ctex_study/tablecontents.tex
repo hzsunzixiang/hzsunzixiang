@@ -1,0 +1,95 @@
+
+
+% 注意 需要有内容的时候才会 显示 tablecontents
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{setspace}
+%\setcounter{tocdepth}{1} % Show sections
+%\setcounter{tocdepth}{2} % + subsections
+%\setcounter{tocdepth}{3} % + subsubsections
+%\setcounter{tocdepth}{4} % + paragraphs
+\setcounter{tocdepth}{5} % + subparagraphs
+
+\begin{document}
+
+    \doublespacing
+    \tableofcontents
+    %\singleplacing
+
+    \newpage
+    
+    \addtocontents{toc}{\setcounter{tocdepth}{1}} % Set depth to 1
+    \section{Section}
+    \subsection{Subsection}
+    hello,world;
+    \subparagraph{this is a Subparagraph}
+    \subparagraph{this is a Subparagraph}
+    \subparagraph{this is a Subparagraph}
+    LaTeX uses the commands \slash section, \slash subsection and \slash subsubsection to define sections in your document
+    The sections will have successive numbers and appear in the table of contents
+    Paragraphs are not numbered and thus don't appear in the table of contents
+    
+    Even more text.
+    
+        
+    Dummy text
+
+    \section{Section}
+    \subsection{Subsection}
+    \subsubsection{Subsubsection}
+    hello,world;
+    hello,world;
+    \section{Section}
+    hello,world;
+
+    \addtocontents{toc}{\setcounter{tocdepth}{3}} % Reset to default (3)
+    \section{Section}
+    hello,world;
+    
+    \subsection{Subsection}
+    hello,world;
+    \subsection{Subsection}
+    hello,world;
+    \subsection{Subsection}
+    hello,world;
+    \subsection{Subsection}
+    hello,world;
+    
+    Dummy text
+
+\begin{figure}[h!]
+  \centering
+
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{coffee.jpg}
+    \caption{Coffee.}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{coffee.jpg}
+    \caption{More coffee.}
+  \end{subfigure}
+  \caption{The same cup of coffee. Two times. first} 
+  \label{fig:coffee1}
+
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{coffee.jpg}
+    \caption{Coffee.}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{coffee.jpg}
+    \caption{More coffee.}
+  \end{subfigure}
+  \caption{The same cup of coffee. Two times. second}
+  \label{fig:coffee2}
+
+\end{figure}
+
+
+\begin{appendix}
+  \listoffigures
+  \listoftables
+\end{appendix}
+
+\end{document}

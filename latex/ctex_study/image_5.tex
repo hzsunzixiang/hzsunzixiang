@@ -1,0 +1,89 @@
+
+
+
+% \documentclass{article}
+% 
+% \usepackage{graphicx}
+% %\usepackage{float}
+% 
+% \begin{document}
+% 
+% %\begin{figure}
+% %\begin{figure}[H]
+% \begin{figure}[h!]
+%   \includegraphics[width=\linewidth]{boat.jpeg}
+%   \caption{A boat.}
+%   \label{fig:boat1}
+% 
+%   \includegraphics{boat.jpeg}
+%   \caption{Another boat.}
+%   \label{fig:boat2}
+% 
+%   \includegraphics[width=\linewidth]{images/panda.jpeg}
+%   \caption{a panda.}
+%   \label{fig:panda}
+% \end{figure}
+% 
+% Figure \ref{fig:boat1} shows a boat.
+% 
+% \end{document}
+
+
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+%\usepackage{float}
+
+\begin{document}
+
+%\begin{figure}[h!]
+%  \centering
+%  \begin{subfigure}[b]{0.4\linewidth}
+%    \includegraphics[width=\linewidth]{coffee.jpg}
+%    \caption{Coffee.}
+%  \end{subfigure}
+%  \begin{subfigure}[b]{0.4\linewidth}
+%    \includegraphics[width=\linewidth]{coffee.jpg}
+%    \caption{More coffee.}
+%  \end{subfigure}
+%  \caption{The same cup of coffee. Two times.}
+%  \label{fig:coffee}
+%\end{figure}
+%
+\begin{figure}[h!]
+  \centering
+
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{coffee.jpg}
+    \caption{Coffee.}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{coffee.jpg}
+    \caption{More coffee.}
+  \end{subfigure}
+  \caption{The same cup of coffee. Two times.}
+  \label{fig:coffee}
+
+  \begin{subfigure}[b]{0.2\linewidth}
+    \includegraphics[width=\linewidth]{coffee.jpg}
+     \caption{Coffee.}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.2\linewidth}
+    \includegraphics[width=\linewidth]{coffee.jpg}
+    \caption{More coffee.}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.2\linewidth}
+    \includegraphics[width=\linewidth]{coffee.jpg}
+    \caption{Tasty coffee.}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.5\linewidth}
+    \includegraphics[width=\linewidth]{coffee.jpg}
+    \caption{Too much coffee.}
+  \end{subfigure}
+  \caption{The same cup of coffee. Multiple times.}
+  \label{fig:coffee3}
+\end{figure}
+
+
+\end{document}

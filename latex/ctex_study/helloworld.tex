@@ -1,0 +1,103 @@
+
+%% 注意 article 和book的不同之处
+% 没有指定这一行会报错
+%\documentclass{book}
+
+
+\iffalse
+%\iftrue
+% 下面这个是 最简单的一个可编译文件 但没有任何输出 因为没有内容
+% 而且下面这3行 缺一不可
+\documentclass{article}
+\begin{document}
+\end{document}
+
+\fi
+
+\iffalse
+% 这是最简单的一个可输出的pdf文件的
+\documentclass{article}
+\begin{document}
+\LaTeX\\
+Hello,world!
+\end{document}
+\fi
+
+
+\iffalse
+% subsection 
+%\parindent 2pt
+%\parskip 2ex
+\documentclass{article}
+\begin{document}
+\section{First}
+\LaTeX\\
+Hello,world!
+\section{Second}
+\subsection{Second-1}
+\subsection{Second-2}
+\subsubsection{Second-2-1}
+\subsubsection{Second-2-2}
+When writing a document, paragraphs may be either separated by a line, and
+no indentation, or just by indentation. To specify the preferred method, one
+must add the commands parindent 0pt \& parskip 2ex in the preamble,
+therefore before the begin{document}. These particular settings will create
+a line separated document.\\
+When writing a document, paragraphs may be either separated by a line, and
+no indentation, or just by indentation. To specify the preferred method, one
+must add the commands parindent 0pt \& parskip 2ex in the preamble,
+therefore before the begin{document}. These particular settings will create
+a line separated document.
+\section{Third}
+\end{document}
+\fi
+
+%\iffalse
+% subsection 
+%\parindent 2pt
+%\parskip 2ex
+\documentclass{article}
+
+
+% 这里是导言部分 usepackage 就放在这里
+\usepackage{graphicx}
+
+\begin{document}
+\section{First}
+\LaTeX\\
+Hello,world!
+\section{Second}
+\subsection{Second-1}
+\subsection{Second-2}
+\subsubsection{Second-2-1}
+\subsubsection{Second-2-2}
+When writing a document, paragraphs may be either separated by a line, and
+no indentation, or just by indentation. To specify the preferred method, one
+must add the commands parindent 0pt \& parskip 2ex in the preamble,
+therefore before the begin{document}. These particular settings will create
+a line separated document.\\
+When writing a document, paragraphs may be either separated by a line, and
+no indentation, or just by indentation. To specify the preferred method, one
+must add the commands parindent 0pt \& parskip 2ex in the preamble,
+therefore before the begin{document}. These particular settings will create
+a line separated document.
+\section{Third}
+
+    \begin{equation}
+        \int_0^{\infty} e^{-\rho} \rho^{2l}\left[ L_{n+l}^{2l+1} \left(\rho \right) \right]^2 \rho^2 d\rho = \frac{2n \left[\left(n+l\right)!  \right]^3}{(n-l-1)!}
+    \end{equation}
+	\[
+		\bar{N}_j^g = \frac{\sum\limits_{k} N_{jk} W_k}{\sum\limits_{K} W_k}
+	\]
+	Velocity ($\vec{v} = \dot{x} = \frac{\partial x}{\partial t}$) is ...
+
+\end{document}
+
+
+%\fi
+
+
+
+
+
+

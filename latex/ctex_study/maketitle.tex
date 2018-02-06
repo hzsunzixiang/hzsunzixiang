@@ -1,0 +1,38 @@
+
+
+% 教程网址 https://www.latex-tutorial.com/tutorials/first-document/#title-page
+
+% \documentclass{article}
+% 
+% \title{My first document}
+% \date{2013-09-01}
+% \author{John Doe}
+% 
+% \begin{document}
+% 
+% % maketile命令很重要  指明要生成利用上面的title来生成封面
+% \maketitle
+% % 指明换页
+% \newpage
+% 
+% Hello World!
+% \end{document}
+
+
+
+\documentclass{article}
+
+\title{My first document}
+\date{2013-09-01}
+\author{John Doe}
+
+\begin{document}
+    \pagenumbering{gobble}
+    %\pagenumbering{roman}
+    \maketitle
+    \newpage
+    %\pagenumbering{arabic}
+    \pagenumbering{roman}
+
+Hello World!
+\end{document}
