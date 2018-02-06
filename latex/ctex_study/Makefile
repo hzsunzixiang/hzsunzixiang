@@ -11,7 +11,7 @@ $(LATEXPDFS): %.pdf: %.tex
 	xelatex $(patsubst %.pdf,%.tex,$@)
 
 clean:
-	rm *.aux *.log *.pdf *.toc *.nav *.snm *.def *.out -f || true
+	rm *.aux *.log *.pdf *.toc *.nav *.snm *.def *.out *.lof *.lot -f || true
 
 veryclean: clean
 	rm $(TARGET).pdf
