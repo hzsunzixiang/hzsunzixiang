@@ -1,0 +1,89 @@
+
+\documentclass{article}
+
+\usepackage{enumitem}
+
+\begin{document}
+
+\begin{itemize}
+	\item One
+	\item Two
+	\item Three
+\end{itemize}
+
+%\newpage
+
+\begin{enumerate}
+	\item One
+	\item Two
+	\item Three
+\end{enumerate}
+
+\begin{enumerate}[label=(\roman*)] 
+	\item One
+	\item Two
+	\item Three
+\end{enumerate}
+
+\begin{enumerate}[label=(\arabic*)] 
+	\item One
+	\item Two
+	\item Three
+\end{enumerate}
+
+\begin{enumerate}[label=(\alph*)] 
+	\item One
+	\item Two
+	\item Three
+\end{enumerate}
+
+\begin{enumerate}
+	\item One
+    \begin{enumerate}
+    	\item Two
+        \item Three
+        \item Four
+    \end{enumerate}
+    \item Five
+    \item Six
+\end{enumerate}
+
+
+
+
+\begin{itemize}
+	\item[--] Dash
+    \item[$-$] Dash
+    \item[$\ast$] Asterisk
+
+%    %From bullet to dash
+%    \item[--] 
+%    \item[$-$]
+%    
+%    % From bullet to asterisk
+%    \item[$\ast$]
+%
+%    %Use any math character
+%    \item[$a$]
+%
+\end{itemize}
+
+helloworld\\
+
+\begin{itemize}[label=$\ast$]
+	\item One
+    \item Two
+    \item Three
+\end{itemize}
+
+
+%下面是错误的 
+% 
+% \begin{itemize}
+% 	\item[--] Dash
+%     \item[\$-\$] Dash
+%     \item[\$\ast\$] Asterisk
+% \end{itemize}
+
+\end{document}
+

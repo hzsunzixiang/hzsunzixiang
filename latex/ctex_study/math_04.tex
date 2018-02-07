@@ -1,0 +1,87 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+
+\begin{document}
+
+%The most useful math envorinments are the equation environment for typesetting single equationsand the align environment for multiple equations and automatic alignment:
+
+This formula $f(x) = x^2$ is an example.
+
+
+\begin{equation}
+  1 = 3 - 2
+\end{equation}
+
+\begin{equation}
+  2 = 4 - 2
+\end{equation}
+
+\begin{equation*}
+  1 = 3 - 2
+\end{equation*}
+
+% 这个环境无法换行 1 + 2 = 31 + 2 = 3
+\begin{equation*}
+  1 + 2 = 3  \\
+  1 + 2 = 3 
+\end{equation*}
+
+% 在&标识的等号处对齐
+\begin{align*}
+  1 + 2 &= 3\\
+  1 &= 3 - 2\\
+  0+ 1 &= 3 - 2 - 0
+\end{align*}
+
+% 在&标识的地方处对齐
+\begin{align*}
+  1 + 2 = &3\\
+  1 &= 3 - 2\\
+  0+ 1 &= 3 - 2 - 0
+\end{align*}
+
+\begin{align*}
+  1 + 2 = 3\\
+  1 = 3 - 2
+\end{align*}
+
+
+\begin{align*}
+  f(x) &= x^2\\
+  g(x) &= \frac{1}{x}\\
+  F(x) &= \int^a_b \frac{1}{3}x^3\\
+  \frac{1}{\sqrt{x}}
+\end{align*}
+
+\begin{align*}    %% 这中间不能有空行
+  \begin{matrix}
+  1 & 0\\
+  0 & 1
+  \end{matrix}    %% 这中间也不能有空行
+\end{align*}
+
+\begin{align*}    %% 这中间不能有空行
+  [
+  \begin{matrix}
+  1 & 0\\
+  0 & 1
+  \end{matrix}    %% 这中间也不能有空行
+  ]
+\end{align*}
+
+\begin{align*}    %% 这中间不能有空行
+  \left[
+  \begin{matrix}
+  1 & 0\\
+  0 & 1
+  \end{matrix}    %% 这中间也不能有空行
+  \right] \\
+  \left(\frac{1}{\sqrt{x}}\right)
+\end{align*}
+
+
+
+\end{document}
+
+
