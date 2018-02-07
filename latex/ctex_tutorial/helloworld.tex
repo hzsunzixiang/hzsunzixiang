@@ -1,0 +1,246 @@
+
+\documentclass{article}
+\begin{document}
+This is my \emph{first} document prepared in \LaTeX.
+This is my \emph{first} document prepared in \LaTeX. I typed it
+on \today.
+
+
+%%%% We have seen that to typeset something in \LaTeX, we type in the
+%%%% text to be typeset together with some \LaTeX\ commands.
+%%%% Words must be separated by spaces (does not matter how many)
+%%%% and lines maybe broken arbitrarily.
+%%%% %下面的空行标识一个段落
+%%%% %The end of a paragraph is specified by a blank line in the input. In other words,
+%%%% %whenever you want to start a new paragraph, just leave a blank line and proceed. For
+%%%% %example, the first two paragraphs above were produced by the input
+%%%% 
+%%%% %Note that the first line of each paragraph starts with an indentation from the left
+%%%% %margin of the text. If you do not want this indentation, just type \noindent at the start
+%%%% %of each paragraph
+%%%% \noindent The end of a paragraph is specified by a \emph{blank line}
+%%%% in the input. In other words, whenever you want to start a new
+%%%% paragraph, just leave a blank line and proceed.
+%%%% 
+%%%% 
+%%%% Carrots are good for your eyes, since they contain Vitamin A. Have you ever seen a rabbit
+%%%% wearing glasses?
+%%%% 
+%%%% Carrots are good for your eyes, since they contain Vitamin A\@. Have
+%%%% you ever seen a rabbit wearing glasses?
+%%%% 
+%%%% The numbers 1, 2, 3, etc.are called natural numbers. According to
+%%%% Kronecker, they were made by God;all else being the works of Man.
+%%%% 
+%%%% The numbers 1, 2, 3, etc.\ are called natural numbers. According to
+%%%% Kronecker, they were made by God;all else being the works of Man.
+%%%% 
+%%%% The numbers 1, 2, 3, etc.                  are called natural numbers. According to
+%%%% Kronecker, they were made by God;all else being the works of Man.
+
+
+
+
+%%%  %TEX gobbles up all spaces after a command.
+%%%  I think \LaTeX is fun.
+%%%  
+%%%  I think \LaTeX\ is fun.
+%%%  
+%%%  Note the difference in right and left quotes in 'single quotes'
+%%%  and 'double quotes''.
+%%%  
+%%%  Note the difference in right and left quotes in `single quotes`
+%%%  and 'double quotes''.
+%%%  
+%%%  Note the difference in right and left quotes in `single quotes'
+%%%  and `double quotes''.
+%%%  
+%%%  Note the difference in right and left quotes in `single quotes'
+%%%  and ``double quotes''.
+%%%  
+%%%  Note the difference in right and left quotes in \lq single
+%%%  quotes\rq\ and \lq\lq double quotes\rq\rq.
+%%%  
+%%%  
+%%%  X-rays are discussed in pages 221--225 of Volume 3---the volume on
+%%%  electromagnetic waves.
+%%%  
+%%%  \'{E}l est\'{a} aqu\'{\i}
+%%%  \oe
+%%%  
+%%%  \aa 
+%%%  
+%%%  \OE 
+%%%  
+%%%  \o 
+%%%  
+%%%  \ss 
+%%%  
+%%%  \AA 
+%%%  
+%%%  \O 
+%%%  
+%%%  ?`   %  反过来的问好
+%%%  
+%%%  \l 
+%%%  
+%%%  \AE 
+%%%  
+%%%  \L
+%%%  
+
+
+\textbackslash \textbackslash \textbackslash
+
+
+%%% Maybe I have now learnt about 1\% of \LaTeX.
+%%% 
+%%% \textasciitilde  \&
+%%% \# \_
+%%% \$  \textbackslash
+%%% \%  \{
+%%% \textasciicircum  \}
+%%% 
+%%% This is the first line.\\[10pt]
+%%% This is the second line
+%%% 
+%%% 
+%%% 
+%%% \begin{center}
+%%% The \TeX nical Institute\\[.75cm]
+%%% Certificate
+%%% \end{center}
+%%% \noindent This is to certify that Mr. N. O. Vice has undergone a
+%%% course at this institute and is qualified to be a \TeX nician.
+%%% \begin{flushright}
+%%% The Director\\
+%%% The \TeX nical Institute
+%%% \end{flushright}
+%%% 
+%%% \begin{flushleft}
+%%% The Director\\
+%%% The \TeX nical Institute
+%%% \end{flushleft}
+
+
+
+
+
+\textit{A polygon of three sides is called a \emph{triangle} and a
+polygon of four sides is called a \emph{quadrilateral}}
+
+
+\textbf{A polygon of three sides is called a
+\emph{triangle} and a polygon of four sides is called a
+\emph{quadrilateral}}
+
+
+
+
+By a \textbf{triangle}, we mean a polygon of three sides.
+
+
+By a {\bfseries{triangle}}, we mean a polygon of three sides.
+
+By a {\bfseries triangle}, we mean a polygon of three sides.
+
+
+% Thus to make the declaration act upon a specific piece of text (and no more), the declaration
+% and the text should be enclosed in braces.
+% Each of these type style changing commands has an alternate form as a declaration. 声明式的  后面的生效
+%By a \bfseries{triangle}, we mean a polygon of three sides.
+
+
+
+roman \textrm{roman}
+
+sans serif \textsf{sans serif}
+
+typewriter \texttt{typewriter}
+
+SERIES
+medium \textmd{medium}
+
+boldface \textbf{boldface}
+
+SHAPE
+upright \textup{upright}
+
+italic \textit{italic}
+
+slanted \textsl{slanted}
+
+SMALL CAP \textsc{small cap}
+
+%by default we get roman family, medium series, upright shape type style in a LATEX output.
+
+\textsf{\textbf{sans serif family, boldface series, upright shape}}
+
+\textrm{\textsl{roman family, medium series, slanted shape}}
+
+
+% 这样不行
+%\begin{rmfmily}
+%These declaration names can also be used as environment names. Thus to typeset
+%a long passage in, say, sans serif, just enclose the passage within the commands
+%\end{rmfamily}
+%
+
+
+\begin{center}
+{\bfseries\huge The \TeX nical Institute}\\[1cm]
+{\scshape\LARGE Certificate}
+\end{center}
+
+\noindent This is to certify that Mr. N. O. Vice has undergone a
+course at this institute and is qualified to be a \TeX nical Expert.
+\begin{flushright}
+{\sffamily The Director\\
+The \TeX nical Institute}
+\end{flushright}
+
+
+
+size {\tiny tiny size} 
+
+size {\scriptsize scriptsize size} 
+
+size {\footnotesize footnotesize size} 
+
+size {\small small size} 
+
+size {\normalsize normalsize size} 
+
+size {\large large size}
+
+size {\Large Large size}
+
+size {\LARGE LARGE size}
+
+size {\huge huge size}
+
+size {\Huge Huge size}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
