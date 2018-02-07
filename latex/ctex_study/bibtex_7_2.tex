@@ -1,0 +1,49 @@
+
+
+%https://www.latex-tutorial.com/tutorials/bibtex/
+
+% 生成 bibliography 需要三个步骤 这个脚本放在 bibliography_2.sh
+
+
+% xelatex bibtex_7_2.tex
+% bibtex bibtex_7_2.aux
+% xelatex bibtex_7_2.tex
+% xelatex bibtex_7_2.tex
+
+\documentclass{article}
+
+\usepackage[backend=bibtex,style=verbose-trad2]{biblatex}
+% 位于 preamble 中
+\bibliography{lesson7a1} 
+
+\begin{document}
+
+Random citation \autocite[1]{DUMMY:1} embeddeed in text.
+Random citation \autocite{DUMMY:1} embeddeed in text.
+Random citation \autocite{ARTICLE:1} embeddeed in article.
+Random citation \autocite{BOOK:1} embeddeed in book.
+Random citation \autocite{BOOK:2} embeddeed in book2.
+
+
+Random citation \autocite{WEBSITE:2} embeddeed in websit.
+Random citation \autocite{wiki:xxx} embeddeed in websit.
+
+%%HOWPUBLISHED = "\url{http://example.com}",
+% HOWPUBLISHED 一样显示不出来 虽然能生成  ， 但是 BibTeX 直接不能生成
+\newpage
+
+\printbibliography
+
+\end{document}
+
+
+
+
+% Summary
+% Generate a bibliography with BibTeX and BibLaTeX
+% First define a .bib file using: \bibliography{BIB_FILE_NAME} (do not add .bib)
+% For BibTeX put the \bibliography statement in your document, for BibLaTeX in the preamble
+% BibTeX uses the \bibliographystyle command to set the citation style
+% BibLaTeX chooses the style as an option like: \usepackage[backend=bibtex, style=verbose-trad2]{biblatex}
+% BibTeX uses the \cite command, while BibLaTeX uses the \autocite command
+% The \autocite command takes the page number as an option: \autocite[NUM]{}

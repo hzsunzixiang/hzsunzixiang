@@ -1,0 +1,63 @@
+
+
+% 生成 bibliography 需要三个步骤 这个脚本放在 bibliography.sh
+
+% xelatex bibtex_7.tex
+% bibtex bibtex_7.aux
+% xelatex bibtex_7.tex
+% xelatex bibtex_7.tex
+
+\documentclass{article}
+
+\begin{document}
+
+Random citation \cite{DUMMY:1} embeddeed in text.
+Random citation \cite{ARTICLE:1} embeddeed in article.
+Random citation \cite{BOOK:1} embeddeed in book.
+Random citation \cite{BOOK:2} embeddeed in book2.
+
+
+Random citation \cite{WEBSITE:1} embeddeed in websit.
+Random citation \cite{wiki:xxx} embeddeed in websit.
+
+% 引用的过程中 .bib文件中的 ARTICLE 和 BOOK等是固定的
+\newpage
+
+% 位于document中
+\bibliography{lesson7a1} 
+\bibliographystyle{ieeetr}
+
+\end{document}
+
+%@ARTICLE{ARTICLE:1,
+%    AUTHOR="John Doe",
+%    TITLE="Title",
+%    JOURNAL="Journal",
+%    YEAR="2017",
+%}
+%
+
+% @BOOK{BOOK:1,
+%     AUTHOR="John Doe",
+%     TITLE="The Book without Title",
+%     PUBLISHER="Dummy Publisher",
+%     YEAR="2100",
+% }
+
+%@INBOOK{BOOK:2,
+%    AUTHOR="John Doe",
+%    TITLE="The Book without Title",
+%    PUBLISHER="Dummy Publisher",
+%    YEAR="2100",
+%    PAGES="100-200",
+%}
+%
+%
+%@MISC{WEBSITE:1,
+%	HOWPUBLISHED = "\url{http://example.com}",
+%	AUTHOR = "Intel",
+%	TITLE = "Example Website",
+%	MONTH = "Dec",
+%	YEAR = "1988",
+%	NOTE = "Accessed on 2012-11-11"
+%}
