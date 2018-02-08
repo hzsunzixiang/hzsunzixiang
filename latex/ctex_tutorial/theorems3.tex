@@ -1,0 +1,68 @@
+
+\documentclass{article}
+
+
+
+\usepackage{amsmath}
+
+\usepackage{amsthm} %% 注意必须包含这个包 不然 通不过
+
+\usepackage{amsfonts} % mathbb
+
+
+
+\newcommand{\halmos}{\rule{1mm}{2.5mm}}
+\renewcommand{\qedsymbol}{\halmos}
+
+%There are some more predefined features in amsthm package. In all the different examples
+%we have seen so far, the theorem number comes after the theorem name. Some prefer to
+%have it the other way round as in
+\swapnumbers
+\theoremstyle{plain}
+\newtheorem{mythm}{Theorem}[section]
+% 修改这里
+%\theoremstyle{mystyle}
+%\theoremstyle{nonum}
+
+
+
+\begin{document}
+
+
+\section{example}
+
+\begin{mythm}
+The sum of the angles of a triangle is $180ˆ\circ$.
+\end{mythm}
+\begin{proof}
+Let $\{p_1,p_2,\dotsc p_k\}$ be a finite set of primes. Define $n=p_1p_2\dotsm
+p_k+1$. Then either $n$ itself is a prime or has a prime factor. Now $n$ is
+neither equal to nor is divisible by any of the primes $p_1,p_2,\dotsc p_k$ so
+that in either case, we get a prime different from $p_1,p_2,\dotsc p_k$. Thus
+no finite set of primes can include all the primes.
+\end{proof}
+
+
+\begin{mythm}
+The sum of the angles of a triangle is $180ˆ\circ$.
+\end{mythm}
+\begin{proof}
+This follows easily from the equation
+\begin{equation}
+(x+y)ˆ2=xˆ2+yˆ2+2xy\tag*{\qed}
+\end{equation}
+\renewcommand{\qed}{}
+\end{proof}
+
+\begin{mythm}
+The sum of the angles of a triangle is $180ˆ\circ$.
+\end{mythm}
+\begin{proof}
+This follows easily from the equation
+\begin{equation*}
+(x+y)ˆ2=xˆ2+yˆ2+2xy\qed
+\end{equation*}
+\renewcommand{\qed}{}
+\end{proof}
+
+\end{document}

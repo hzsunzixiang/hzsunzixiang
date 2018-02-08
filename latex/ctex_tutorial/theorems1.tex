@@ -1,0 +1,30 @@
+
+\documentclass{article}
+
+\usepackage{amsthm}
+\newtheorem{thm}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem{dfn}{Definition}[section]
+\theoremstyle{remark}
+\newtheorem{note}{Note}[section]
+\theoremstyle{plain}
+\newtheorem{lem}[thm]{Lemma}
+
+\begin{document}
+
+\section{example}
+\begin{dfn}
+A triangle is the figure formed by joining each pair
+of three non collinear points by line segments.
+\end{dfn}
+\begin{note}
+A triangle has three angles.
+\end{note}
+\begin{thm}
+The sum of the angles of a triangle is $180ˆ\circ$.
+\end{thm}
+\begin{lem}
+The sum of any two sides of a triangle is greater than or equal to the third.
+\end{lem}
+
+\end{document}

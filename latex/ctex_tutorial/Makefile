@@ -1,7 +1,7 @@
 # NOTE: Change "written" to the name of your TeX file with no extension
 #
 # #https://reu.dimacs.rutgers.edu/Symbols.pdf 
-TARGET=helloworld
+TARGET=helloworld theorems theorems1 theorems2 theorems3
 
 
 # bibtex_7

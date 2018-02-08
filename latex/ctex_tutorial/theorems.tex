@@ -1,0 +1,49 @@
+
+\documentclass{article}
+\begin{document}
+
+%you first specify
+%newtheorem{thm}{Theorem}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+%and then type
+\begin{thm}
+The sum of the angles of a triangle is $180ˆ\circ$.
+\end{thm}
+
+\begin{thm}
+The sum of the angles of a triangle is $180ˆ\circ$.
+\end{thm}
+
+\section{display the Theorem}
+
+% 最好放在section里面 否则 格式不好看
+\begin{thm}
+The sum of the angles of a triangle is $180ˆ\circ$.
+\end{thm}
+
+\section{display the Theorem another section}
+
+% 最好放在section里面 否则 格式不好看
+\begin{thm}
+The sum of the angles of a triangle is $180ˆ\circ$.
+\end{thm}
+\begin{cor}
+The sum of the angles of a quadrilateral is $360ˆ\circ$.
+\end{cor}
+
+
+\begin{thm}[Euclid]
+The sum of the angles of a triangle is $180ˆ\circ$.
+\end{thm}
+
+\begin{thm}
+%[0,1] is a compact subset of $\mathbb{R}$.
+[0,1] is a compact subset of ${R}$.
+\end{thm}
+
+\begin{thm}
+$[0,1]$ is a compact subset of ${R}$.
+\end{thm}
+
+\end{document}

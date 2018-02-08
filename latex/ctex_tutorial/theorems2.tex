@@ -1,0 +1,106 @@
+
+\documentclass{article}
+
+
+
+\usepackage{amsmath}
+
+\usepackage{amsthm} %% 注意必须包含这个包 不然 通不过
+
+\usepackage{amsfonts} % mathbb
+
+
+%\newtheoremstyle%
+%{name}%
+%{abovespace}%
+%{belowspace}%
+%{bodyfont}%
+%{indent}%
+%{headfont}%
+%{headpunct}%
+%{headspace}%
+%{custom-head-spec}%
+
+%\newtheoremstyle{mystyle}{}{}{\slshape}{}{\scshape}{.}{}{}
+%\newtheoremstyle{mynewstyle}{12pt}{12pt}{\itshape}%
+%{}{\sffamily}{:}{\newline}{}
+%\theoremstyle{mystyle}
+%\newtheorem{mythm}{Theorem}[section]
+
+
+%\newtheoremstyle{plain}
+%  {\topsep}   % ABOVESPACE
+%  {\topsep}   % BELOWSPACE
+%  {\itshape}  % BODYFONT
+%  {0pt}       % INDENT (empty value is the same as 0pt)
+%  {\bfseries} % HEADFONT
+%  {.}         % HEADPUNCT
+%  {5pt plus 1pt minus 1pt} % HEADSPACE
+%  {}          % CUSTOM-HEAD-SPEC
+%
+
+% \newtheoremstyle{mystyle}{}{}{\slshape}{}{\scshape}{.}{ }{}
+
+%\newtheoremstyle{mystyle}{12pt}{12pt}{\itshape}%
+%{}{\sffamily}{:}{\newline}{}
+
+
+%\newtheoremstyle{mystyle}{12pt}{12pt}{\itshape}%
+%{}{\sffamily}{:}{2pt}{}
+
+\newtheoremstyle{mystyle}{12pt}{12pt}{\itshape}%
+{}{\sffamily}{......}{2pt}{}
+
+\newtheoremstyle{nonum}{}{}{\itshape}{}{\bfseries}{.}{ }{#1 (\mdseries #3)}
+
+\newtheoremstyle{newnonum}{}{}{\itshape}{}{\bfseries}{.}{ }%
+{\thmname{#1}\thmnote{ (\mdseries #3)}}
+
+
+
+
+\newtheoremstyle{citing}{}{}{\itshape}{}{\bfseries}{.}{ }{\thmnote{#3}}
+\theoremstyle{citing}
+\newtheorem{cit}{}
+
+% 修改这里
+%\theoremstyle{mystyle}
+%\theoremstyle{nonum}
+\theoremstyle{newnonum}
+
+
+\newtheorem{mythm}{Theorem}[section]
+
+\begin{document}
+
+
+\section{example}
+
+\begin{mythm}
+The sum of the angles of a triangle is $180ˆ\circ$.
+\end{mythm}
+
+
+\begin{mythm}[Euclid]
+The sum of the angles of a triangle is $180ˆ\circ$.
+\end{mythm}
+
+\begin{mythm}[Third Version]
+If $G$ is a simply connected open subset of ${C}$, then for every closed
+rectifiable curve $\gamma$ in $G$, we have
+\begin{equation*}
+\int_\gamma f=0.
+\end{equation*}
+\end{mythm}
+
+\begin{mythm}Every open simply connected proper subset of $\mathbb{C}$ is analytically
+homeomorphic to the open unit disk in $\mathbb{C}$.
+\end{mythm}
+
+\begin{cit}[Axiom 1 in \cite{eu}]
+Things that are equal to the same thing are equal to one another.
+\end{cit}
+
+
+
+\end{document}
