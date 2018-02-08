@@ -1,6 +1,8 @@
 
+
+% UTF-8 encoding
 \documentclass{article}
-\usepackage{CJKutf8}
+\usepackage{xeCJK}
 \usepackage{mathrsfs}
 \usepackage{titlesec}
 \usepackage{helvet}
@@ -11,15 +13,14 @@
 \doublespacing
 
 \usepackage{amssymb}% http://ctan.org/pkg/amssymb 特殊符号
-
-% 注意用gbsn 的 否则 开头有一个中文无法显示出来
-\begin{CJK*}{UTF8}{gbsn}
+\setCJKmainfont{FangSong}
 
 %\title{\huge{透彻理解RSA公钥加密算法} \thanks{}}
 \title{\huge{透彻理解RSA公钥加密算法} }
 \author{孙自翔\\[2pt]
 (Email:haichengsun123@163.com) \\[2pt]}
 \date{}  % 这一行用来去掉默认的日期显示
+
 
 
 %http://latex.org/forum/viewtopic.php?t=13545
@@ -42,8 +43,6 @@
 \theoremstyle{plain}
 \newtheorem{lem}[thm]{Lemma}
 
-
- 
 \begin{document}
 
 % 注意这里 必须在摘要之前
@@ -51,8 +50,11 @@
 
 \tableofcontents
 \addtocontents{toc}{\setcounter{tocdepth}{3}} % Set depth to 1
+%\singleplacing
 
 \newpage
+
+
 
 说明: 本文从数学的角度，阐述RSA算法所涉及的数论方面的各个知识点，文章首先简要介绍RSA加密算法,然后分述各数学知识点,最后以一个实际例子结束。
 % 
@@ -112,7 +114,5 @@
 % 位于document中
 \bibliography{rsa} 
 \bibliographystyle{ieeetr}
-
-\end{CJK*}
 
 \end{document}
