@@ -15,3 +15,34 @@
 4. 管道符号 打印出来 | 是破折号
 		真正的整除符号为 $\mid$
 
+
+5. CJK包
+    https://en.wikibooks.org/wiki/LaTeX/Internationalization#Chinese
+    gbsn (简体宋体, simplified Chinese)
+	gkai (简体楷体, simplified Chinese)
+	bsmi (繁體細上海宋體, traditional Chinese)
+	bkai (繁體標楷體, traditional Chinese)
+
+	One possible Chinese support is made available thanks to the CJK package collection. If you are using a package manager or a portage tree, the CJK collection is usually in a separate package because of its size (mainly due to fonts).
+	Make sure your document is saved using the UTF-8 character encoding. See Special Characters for more details. Put the parts where you want to write chinese characters in a CJK environment.
+	\documentclass{article}
+	\usepackage{CJK}
+	\begin{document}
+
+	\begin{CJK}{UTF8}{gbsn}
+	你好
+	You can mix latin letters and chinese.
+	\end{CJK}
+
+	\end{document}
+	The last argument specifies the font. It must fit the desired language, since fonts are different for Chinese, Japanese and Korean. Possible choices for Chinese include:
+
+	gbsn (简体宋体, simplified Chinese)
+	gkai (简体楷体, simplified Chinese)
+	bsmi (繁體細上海宋體, traditional Chinese)
+	bkai (繁體標楷體, traditional Chinese)
+    % 下面这两种字不支持
+    %\begin{CJK*}{UTF8}{bsmi}
+    %\begin{CJK*}{UTF8}{bkai}
+
+
