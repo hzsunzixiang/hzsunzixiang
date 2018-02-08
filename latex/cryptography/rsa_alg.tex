@@ -1,0 +1,76 @@
+
+
+% UTF-8 encoding
+\documentclass{article}
+\usepackage{xeCJK}
+\usepackage{mathrsfs}
+\usepackage{titlesec}
+\usepackage{helvet}
+
+\usepackage{subcaption}
+\usepackage{setspace}
+\setcounter{tocdepth}{3} 
+\doublespacing
+
+\setCJKmainfont{FangSong}
+
+\title{\huge{透彻理解RSA公钥加密算法} \thanks{}}
+\author{孙自翔\\[2pt]
+(Email:haichengsun123@163.com) \\[2pt]}
+\date{}  % 这一行用来去掉默认的日期显示
+
+
+
+%http://latex.org/forum/viewtopic.php?t=13545
+\titleformat{\chapter}[display]
+   {\normalfont\fontsize{16pt}{18pt}\selectfont\mdseries}
+   {\MakeUppercase{\chaptertitlename}\ \thechapter}{20pt}{\MakeUppercase}
+\titleformat{\section}
+   {\normalfont\fontsize{12pt}{14pt}\selectfont\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+   {\normalfont\fontsize{12pt}{14pt}\selectfont\itshape}{\thesubsection}{1em}{}
+\titlespacing*{\section} {0pt}{0pt}{2.3ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{0pt}{1.5ex plus .2ex}
+
+\begin{document}
+
+
+\tableofcontents
+\addtocontents{toc}{\setcounter{tocdepth}{3}} % Set depth to 1
+%\singleplacing
+
+\newpage
+
+% 注意这里 必须在摘要之前
+\maketitle
+
+说明: 本文从数学的角度，阐述RSA算法所涉及的数论方面的各个知识点，文章首先简要介绍RSA加密算法,然后分述各数学知识点,最后以一个实际例子结束。
+% 
+% 这里有中文字体警告 
+\section{密码学术语介绍}
+%$\mathscr{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$ % 花体必须大写 小写不行
+% 
+\hspace*{6mm}
+概括地讲\cite{BOOK:1}，密码系统是指包含可能的明文信息的有限集合 $\mathscr{P}$，可能的密文信息的有限集合$\mathscr{L}$，可能的密钥的密钥空间$\mathscr{K}$，以及对于密钥空间$\mathscr{K}$里的每一个密钥$k$，存在加密函数$E_k$和对应的解密函数$D_k$，使得任意的明文信息$x$满足$D_k(E_k(x))=x$。
+
+
+%\section{\textbf{数论概念及定理阐述}}
+\section{数论概念及定理阐述}
+\subsection{同余}   
+  %https://zh.wikipedia.org/wiki/%E5%90%8C%E9%A4%98  
+  %\\ 叙述:
+\subsection{裴蜀等式(Bézout's identity)}   
+\subsection{辗转相除法}   
+\subsection{扩展欧几里得算法}   
+\subsection{模逆元(模反元素)}   
+\subsection{欧拉定理}   
+\subsection{欧拉函数}   
+\subsection{费马小定理}   
+\subsection{RSA算法}   
+ 
+
+% 位于document中
+\bibliography{rsa} 
+\bibliographystyle{ieeetr}
+
+\end{document}
