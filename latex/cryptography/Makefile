@@ -10,10 +10,10 @@ LATEXPDFS=$(patsubst %.tex,%.pdf,$(wildcard *.tex))
 $(LATEXPDFS): %.pdf: %.tex
 	rm *.toc ||true
 	pdflatex rsa_alg.tex
-	rm *.toc
+	rm *.toc ||true
 	bibtex rsa_alg.aux
 	pdflatex rsa_alg.tex
-	rm *.toc
+	rm *.toc ||true
 	pdflatex rsa_alg.tex
 
 clean:
