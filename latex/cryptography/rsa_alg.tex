@@ -33,6 +33,15 @@
 \titlespacing*{\section} {0pt}{0pt}{2.3ex plus .2ex}
 \titlespacing*{\subsection}{0pt}{0pt}{1.5ex plus .2ex}
 
+\usepackage{amsthm}
+\newtheorem{thm}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem{dfn}{定义}[section]
+\theoremstyle{remark}
+\newtheorem{note}{Note}[section]
+\theoremstyle{plain}
+\newtheorem{lem}[thm]{Lemma}
+
 \begin{document}
 
 % 注意这里 必须在摘要之前
@@ -58,12 +67,25 @@
 
 %\section{\textbf{数论概念及定理阐述}}
 \section{数论概念及定理阐述}
+\subsection{模除}   
+
+\begin{dfn}
+模除\cite{WEBSITE:modulo}是一种不具交换性的二元运算。在C语言中用 $\%$表示。
+\end{dfn}
+
+%\paragraph
+当 $a = bq + r$， q是整数，并使其达到最大，此时我们说a模除b等于r。(r为非负数)。
+
+以数学式子表示：a模除b = $a-\left\lfloor \frac{a}{b}\right\rfloor \times b$。
+
+例如要计算100模除16，由于$100/16$是一个大于6且不大于7的数，取q=6。结果为$100-16\times6=4$。
+
+
 \subsection{同余}   
   %https://zh.wikipedia.org/wiki/%E5%90%8C%E9%A4%98  
   %\\ 叙述:
-%同余\cite{WEBSITE:1}（英语：congruence modulo[1]，符号：≡）是数论中的一种等价关系[2]。当两个整数除以同一个正整数，若得相同余数，则二整数同余。同余是抽象代数中的同余关系的原型[3]。最先引用同余的概念与“≡”符号者为德国数学家高斯。
+同余\cite{WEBSITE:congruence_modulo}（英语：congruence modulo，符号：$\equiv$）是数论中的一种等价关系。当两个整数除以同一个正整数，若得相同余数，则二整数同余。同余是抽象代数中的同余关系的原型[3]。最先引用同余的概念与“≡”符号者为德国数学家高斯。
 
-Random citation \cite{WEBSITE:1} embeddeed in websit.
 
 \subsection{裴蜀等式(Bézout's identity)}   
 \subsection{辗转相除法}   
