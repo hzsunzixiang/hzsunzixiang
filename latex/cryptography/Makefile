@@ -8,7 +8,10 @@ all: $(patsubst %, %.pdf, $(TARGET))
 ## Generalized rule: how to build a .pdf from each .tex
 LATEXPDFS=$(patsubst %.tex,%.pdf,$(wildcard *.tex))
 $(LATEXPDFS): %.pdf: %.tex
-	xelatex $(patsubst %.pdf,%.tex,$@)
+	xelatex rsa_alg.tex
+	bibtex rsa_alg.aux
+	xelatex rsa_alg.tex
+	xelatex rsa_alg.tex
 
 clean:
 	rm *.aux *.log *.pdf *.toc || true
