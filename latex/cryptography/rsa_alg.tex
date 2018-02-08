@@ -12,6 +12,7 @@
 \setcounter{tocdepth}{3} 
 \doublespacing
 
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb 特殊符号
 \setCJKmainfont{FangSong}
 
 %\title{\huge{透彻理解RSA公钥加密算法} \thanks{}}
@@ -67,8 +68,17 @@
 
 %\section{\textbf{数论概念及定理阐述}}
 \section{数论概念及定理阐述}
-\subsection{模除}   
+\subsection{整除}   
 
+一个整数可以被另一个整数整除的概念在数论中处于中心地位.
+\begin{dfn}
+如果$a$和$b$为整数且$a \neq 0$, 我们说$a$整除$b$是指存在整数$c$使得$b=ac$.如果$a$整除$b$，我们还称$a$是$b$的一个因子,且称$b$是$a$的倍数.
+\end{dfn}
+如果$a$整除$b$,则将其记为$a \mid b$,如果$a$不能整除$b$,则将其记为 $a \nmid b$
+
+比如：$13 \mid 182$，$-5\mid30$，$6 \nmid 44$，$7 \nmid 50$
+
+\subsection{模除}   
 \begin{dfn}
 模除\cite{WEBSITE:modulo}是一种不具交换性的二元运算。在C语言中用 $\%$表示。
 \end{dfn}
@@ -81,9 +91,14 @@
 例如要计算100模除16，由于$100/16$是一个大于6且不大于7的数，取q=6。结果为$100-16\times6=4$。
 
 
+
 \subsection{同余}   
-  %https://zh.wikipedia.org/wiki/%E5%90%8C%E9%A4%98  
-  %\\ 叙述:
+同余的语言使得人们能用类似于处理等式的方式来处理整数关系。
+
+\begin{dfn}
+设m是正整数. 若$a$和$b$是整数,且 m|(a-b)
+\end{dfn}
+
 同余\cite{WEBSITE:congruence_modulo}（英语：congruence modulo，符号：$\equiv$）是数论中的一种等价关系。当两个整数除以同一个正整数，若得相同余数，则二整数同余。同余是抽象代数中的同余关系的原型[3]。最先引用同余的概念与“≡”符号者为德国数学家高斯。
 
 
