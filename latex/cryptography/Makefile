@@ -5,16 +5,14 @@ TARGET= rsa_alg mathscr
 
 all: $(patsubst %, %.pdf, $(TARGET))
 
+#	 rm *.toc ||true
 ## Generalized rule: how to build a .pdf from each .tex
 LATEXPDFS=$(patsubst %.tex,%.pdf,$(wildcard *.tex))
 $(LATEXPDFS): %.pdf: %.tex
-	rm *.toc ||true
-	pdflatex rsa_alg.tex
-	rm *.toc ||true
+	pdflatex -interaction nonstopmode $(patsubst %.pdf,%.tex,$@)
 	bibtex rsa_alg.aux
-	pdflatex rsa_alg.tex
-	rm *.toc ||true
-	pdflatex rsa_alg.tex
+	pdflatex -interaction nonstopmode $(patsubst %.pdf,%.tex,$@)
+	pdflatex -interaction nonstopmode $(patsubst %.pdf,%.tex,$@)
 
 clean:
 	rm *.aux *.log *.pdf *.toc *.bbl *.xml *.blg *.dvi|| true
