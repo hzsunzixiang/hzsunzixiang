@@ -1,0 +1,133 @@
+
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{mathrsfs}
+\usepackage{titlesec}
+\usepackage{helvet}
+
+\usepackage{subcaption}
+\usepackage{setspace}
+
+
+% 如何设置页眉 还没有学会
+%\usepackage{fancyhdr}                                
+%\usepackage{lastpage}                                           
+%\usepackage{layout}                                             
+%\footskip = 10pt                                                
+%%\pagestyle{fancy}                    % 设置页眉                 
+%\chead{boyaa}
+
+\setcounter{tocdepth}{3} 
+\doublespacing
+
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb 特殊符号
+
+
+
+
+
+
+% 注意用gbsn 的 否则 开头有一个中文无法显示出来
+%\begin{CJK*}{UTF8}{gbsn}
+\begin{CJK*}{UTF8}{gkai}
+
+%\title{\huge{透彻理解RSA公钥加密算法} \thanks{}}
+\title{\huge{德州Server新框架的部署及问题排查说明} }
+\author{孙自翔\\[2pt]
+(Email:haichengsun123@163.com) \\[2pt]}
+\date{}  % 这一行用来去掉默认的日期显示
+
+
+%http://latex.org/forum/viewtopic.php?t=13545
+
+\usepackage{amsthm}
+\newtheorem{thm}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem{dfn}{定义}[section]
+\theoremstyle{remark}
+\newtheorem{note}{Note}[section]
+\theoremstyle{plain}
+\newtheorem{lem}[thm]{Lemma}
+
+
+ 
+\begin{document}
+
+% 注意这里 必须在摘要之前
+\maketitle  % 这里和页眉冲突
+
+
+%2. pdflatex 运行两次失败,原因是sections标题中有中文  通过删除 rsa_alg.toc 来解决
+%	但是生成tableofcontents又需要两次 生成toc
+%	和第三条冲突了
+%
+%3. 用pdflatex 生成tableofcontents 需要运行两次才行
+
+%所以暂时不生成了  需要再次研究
+%\tableofcontents
+%\addtocontents{toc}{\setcounter{tocdepth}{3}} % Set depth to 1
+%\newpage
+
+说明: 本文从数学的角度，阐述RSA算法所涉及的数论方面的各个知识点，文章首先简要介绍RSA加密算法,然后分述各数学知识点,最后以一个实际例子结束。
+
+% 
+% 这里有中文字体警告 
+\section{密码学术语介绍}
+%$\mathscr{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$ % 花体必须大写 小写不行
+% 
+\hspace*{6mm}
+概括地讲\cite{BOOK:1}，密码系统是指包含可能的明文信息的有限集合 $\mathscr{P}$，可能的密文信息的有限集合$\mathscr{L}$，可能的密钥的密钥空间$\mathscr{K}$，以及对于密钥空间$\mathscr{K}$里的每一个密钥$k$，存在加密函数$E_k$和对应的解密函数$D_k$，使得任意的明文信息$x$满足$D_k(E_k(x))=x$。
+
+
+%\section{\textbf{数论概念及定理阐述}}
+\section{数论概念及定理阐述}
+\subsection{整除}   
+
+一个整数可以被另一个整数整除的概念在数论中处于中心地位.
+\begin{dfn}
+如果$a$和$b$为整数且$a \neq 0$, 我们说$a$整除$b$是指存在整数$c$使得$b=ac$.如果$a$整除$b$，我们还称$a$是$b$的一个因子,且称$b$是$a$的倍数.
+\end{dfn}
+如果$a$整除$b$,则将其记为$a \mid b$,如果$a$不能整除$b$,则将其记为 $a \nmid b$
+
+比如：$13 \mid 182$，$-5\mid30$，$6 \nmid 44$，$7 \nmid 50$
+
+\subsection{模除}   
+\begin{dfn}
+模除\cite{WEBSITE:modulo}是一种不具交换性的二元运算。在C语言中用 $\%$表示。
+\end{dfn}
+
+%\paragraph
+当 $a = bq + r$， q是整数，并使其达到最大，此时我们说a模除b等于r。(r为非负数)。
+
+以数学式子表示：a模除b = $a-\left\lfloor \frac{a}{b}\right\rfloor \times b$。
+
+例如要计算100模除16，由于$100/16$是一个大于6且不大于7的数，取q=6。结果为$100-16\times6=4$。
+
+
+
+\subsection{同余}   
+同余的语言使得人们能用类似于处理等式的方式来处理整数关系。
+
+\begin{dfn}
+设m是正整数. 若$a$和$b$是整数,且 $m \mid (a-b)$
+\end{dfn}
+
+同余\cite{WEBSITE:congruence_modulo}（英语：congruence modulo，符号：$\equiv$）是数论中的一种等价关系。当两个整数除以同一个正整数，若得相同余数，则二整数同余。同余是抽象代数中的同余关系的原型[3]。最先引用同余的概念与“≡”符号者为德国数学家高斯。
+
+
+\subsection{辗转相除法}   
+\subsection{扩展欧几里得算法}   
+\subsection{模逆元(模反元素)}   
+\subsection{欧拉定理}   
+\subsection{欧拉函数}   
+\subsection{费马小定理}   
+\subsection{RSA算法}   
+ 
+
+% 位于document中
+\bibliography{rsa} 
+\bibliographystyle{ieeetr}
+
+\end{CJK*}
+
+\end{document}
