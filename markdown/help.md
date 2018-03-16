@@ -16,6 +16,18 @@ $$ evidence\_{i}=\sum \_{j}W\_{ij}x\_{j}+b\_{i} $$
 Let me introduce myself.
 
 
+<font face="黑体"> 黑体: Hello world </font> </br>
+<font face="STCAIYUN"> STCAIYUN: hello world </font></br>
+<font face="Terminal"> Terminal: Hello world </font></br>
+<font face="Consolas"> Consolas: Hello world </font></br>
+
+$$
+f(x;\mu,\sigma^2) = \frac{1}{\sigma\sqrt{2\pi}} e^{ -\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2 } \tag{1}
+$$
+
+where $\mu$ is the mean value, $\sigma^2$ is standard deviation.
+参考文档      
+http://blog.csdn.net/yhl_leo/article/details/49788741
 
 ## Markdown and I
 
