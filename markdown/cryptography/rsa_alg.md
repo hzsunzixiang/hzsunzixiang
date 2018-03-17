@@ -30,19 +30,22 @@ $$ evidence\_{i}=\sum \_{j}W\_{ij}x\_{j}+b\_{i} $$
 > RSA密码系统是基于模指数的公钥密码系统，其中公钥是有一个整数\\(e\\)和两个大素数的乘积生成的模数\\(n\\)组成的数对
 > $$(e,n) ,    \ \ \ \    且n=pq, \ \ 其中p和q是大素数$$
 > $$且（e,\varphi(n)）=1$$
-> $$由欧拉公式\ \ \ \  \varphi(n)=\varphi(p)\varphi(q)=(p-1)(q-1)$$
-> 为了加密信息，首先将字母转为其等价数值的数据组。  
-> 为加密明文数据组中的数据P，我们通过加密变换\\(E(P)\\)生成密文数据C:
-> $$E(P)=C \equiv P^e(mod\ n),\ 0\leq C < n$$
-> 解密过程需要知道\\(e\\)模\\(\varphi(n)的逆d\\)，\\(d\\)就是所谓的密钥，由于
+> $$由欧拉公式,\ \ \ \ 其中 \varphi(n)=\varphi(p)\varphi(q)=(p-1)(q-1)$$
+> 解密过程需要知道\\(e\\)模\\(\varphi(n)的逆d\\),也就是
+> $$ed \equiv 1 (mod\ \varphi(n))$$
+> \\(d\\)就是所谓的密钥，由于
 > $$（e,\varphi(n)）=1， $$
-> 所以密钥是存在的,为了解密密文数据C，我们利用解密变换,来获取明文P
+> 所以密钥\\(d\\)是存在的。  
+> 为了加密信息，首先将字母转为其等价数值的数据组。  
+> 为了加密明文数据组中的数据P，我们通过加密变换\\(E(P)\\)生成密文数据C:
+> $$E(P)=C \equiv P^e(mod\ n),\ 0\leq C < n$$
+> 为了解密密文数据C，我们利用解密变换,来获取明文P
 > $$P=D(C) \equiv C^d(mod \ n), 0\leq D(C)<n$$
 > 证明过程如下：
 > $$D(C)=C^d \equiv (P^e)^d=P^{ed} \equiv P^{k\varphi(n)+1} \equiv P^{\varphi(n)k}P(mod\ n)$$
 > 其中\\(ed=k\varphi(n)+1\\)对某个整数\\(k\\)成立，这是因为\\(ed\equiv1(mod\ \varphi(n))\\)，  
-> 当\\((P,n)=1\\)时由欧拉定理可知\\(P^{\varphi(n)\equiv 1(mod \ n)}\\),故
-> $$P^{\varphi(n)k}P \equiv (P^{\varphi(n)})^{k}P \equiv P(mod n)$$
+> 当\\((P,n)=1\\)时由欧拉定理可知\\(P^{\varphi(n)}\equiv 1(mod \ n)\\),故
+> $$P^{\varphi(n)k}P \equiv (P^{\varphi(n)})^{k}P \equiv P(mod\ n)$$
 > 所以  
 > $$D(C) \equiv P(mod\ n)$$
 > 命题得证
