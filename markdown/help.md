@@ -2,6 +2,8 @@
 
 ![MacDown logo](http://macdown.uranusjr.com/static/images/logo-160.png)
 
+![MacDown logo](./champion200.svg)
+
 Hello there! I’m **MacDown**, the open source Markdown editor for OS X.
 <script type="text/javascript"
    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
@@ -24,7 +26,10 @@ Let me introduce myself.
 $$
 f(x;\mu,\sigma^2) = \frac{1}{\sigma\sqrt{2\pi}} e^{ -\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2 } \tag{1}
 $$
-
+行间公式
+$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
+行内公式
+\\(x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\\)
 where $\mu$ is the mean value, $\sigma^2$ is standard deviation.
 参考文档      
 http://blog.csdn.net/yhl_leo/article/details/49788741
@@ -354,6 +359,15 @@ I offer auto-completion and other functions to ease your editing experience. If 
 
 
 
+
+
+## <a name="markdown-pane-test"></a>The Markdown Preference Pane test
+
+	
+I support all the original Markdown syntaxes. But I can do so much more! Various popular but non-standard syntaxes can be turned on/off from the [**Markdown** preference pane](#markdown-pane-test).
+
+
+
 ## Hack On
 
 That’s about it. Thanks for listening. I’ll be quiet from now on (unless there’s an update about the app—I’ll remind you for that!).
@@ -368,5 +382,3 @@ Happy writing!
 [^quote]: **Quote** replaces literal `"` characters with html `<q>` tags. **Quote** and **Smartypants** are syntactically incompatible. If both are enabled, **Quote** takes precedence. Note that **Quote** is different from *blockquote*, which is part of standard Markdown.
 
 [^math]: Internet connection required.
-
-
