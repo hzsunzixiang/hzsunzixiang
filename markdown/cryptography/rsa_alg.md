@@ -1,15 +1,26 @@
-# <center>RSA加密算法的数学原理
+# <center>RSA加密算法的数学原理</center>
+
+<div style="text-align: center;">之第一篇: RSA加密算法的数学原理 </div> 
 
 
-
-<div style="text-align: right;">孙自翔 haichengsun123@163.com</div> 
+<div style="text-align: right;">孙自翔 </div> 
+<div style="text-align: right;">ericksun@tencent.com</div> 
+<div style="text-align: right;">haichengsun123@163.com</div> 
 
 <script type="text/javascript"
    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-说明: 本文从数学的角度，阐述RSA算法所涉及的数论方面的各个知识点，文章首先简要介绍RSA加密算法,然后分述各数学知识点,最后以一个实际例子结束。
+**说明**: 本系列文章从数学的角度，阐述RSA算法所涉及的数论方面的各个知识点，并且以C代码演示加密和解密的过程，最后说明RSA密码系统的安全性。    
+所以这一系列共有三篇文章 
+  
+**第一篇** RSA加密算法的数学原理  
+**第二篇** RSA加密算法的C代码实践    
+**第三篇** RSA密码系统的安全性
+
+**本文是第一篇**   文章首先简要介绍并推导RSA加密算法,然后分述各数学知识点；最后利用这些数学知识点再次总结RSA加密算法的整体数学推导过程。
 <ol>   <!---定义有序列表 这个很重要-->
+
 ## <li> 密码学术语介绍
 
 <!--
@@ -25,10 +36,9 @@ $$ evidence\_{i}=\sum \_{j}W\_{ij}x\_{j}+b\_{i} $$
 密码系统是指包含可能的明文信息的有限集合 \\({\cal P}\\)，可能的密文信息的有限集合\\({\cal L}\\)，可能的密钥的密钥空间\\({\cal K}\\)，以及对于密钥空间\\({\cal K}\\)里的每一个密钥\\({k}\\)，存在加密函数\\(E\_k\\)和对应的解密函数\\(D\_k\\)，使得任意的明文信息\\(x\\)满足\\(D\_k(E\_k(x))=x\\)。
 
 ## <li> RSA算法推导过程
-首先把RSA算法的推导过程阐述如下，后面会逐一说明每一步的推导过程。
-并且再总结的时候会用另外一种方式再次阐述一次。
+首先把RSA算法的推导过程阐述如下，后面逐一阐述推导过程所用到的每个数学知识点。
 > RSA密码系统是基于模指数的公钥密码系统，其中公钥是有一个整数\\(e\\)和两个大素数的乘积生成的模数\\(n\\)组成的数对
-> $$(e,n) ,    \ \ \ \    且n=pq, \ \ 其中p和q是大素数$$
+> $$公钥为(e,n) ,    \ \ \ \    且n=pq, \ \ 其中p和q是大素数$$
 > $$且(e,\varphi(n))=1$$
 > $$由欧拉公式,\ \ \ \ 其中 \varphi(n)=\varphi(p)\varphi(q)=(p-1)(q-1)$$
 > 解密过程需要知道\\(e\\)模\\(\varphi(n)的逆d\\),也就是
@@ -40,14 +50,14 @@ $$ evidence\_{i}=\sum \_{j}W\_{ij}x\_{j}+b\_{i} $$
 > 为了加密明文数据组中的数据P，我们通过加密变换\\(E(P)\\)生成密文数据C:
 > $$E(P)=C \equiv P^e(mod\ n),\ 0\leq C < n$$
 > 为了解密密文数据C，我们利用解密变换,来获取明文P
-> $$P=D(C) \equiv C^d(mod \ n), 0\leq D(C)<n$$
+> $$P=D(E(P))=D(C) \equiv C^d(mod \ n), 0\leq D(C)<n$$
 > 证明过程如下：
-> $$D(C)=C^d \equiv (P^e)^d=P^{ed} \equiv P^{k\varphi(n)+1} \equiv P^{\varphi(n)k}P(mod\ n)$$
+> $$D(E(P))=D(C)=C^d \equiv (P^e)^d=P^{ed} \equiv P^{k\varphi(n)+1} \equiv P^{\varphi(n)k}P(mod\ n)$$
 > 其中\\(ed=k\varphi(n)+1\\)对某个整数\\(k\\)成立，这是因为\\(ed\equiv1(mod\ \varphi(n))\\)，  
 > 当\\((P,n)=1\\)时由欧拉定理可知\\(P^{\varphi(n)}\equiv 1(mod \ n)\\),故
 > $$P^{\varphi(n)k}P \equiv (P^{\varphi(n)})^{k}P \equiv P(mod\ n)$$
 > 所以  
-> $$D(C) \equiv P(mod\ n)$$
+> $$D(E(P)) \equiv P(mod\ n)$$
 > 命题得证
 
 ## <li> 数论概念及定理阐述 
@@ -65,8 +75,7 @@ $$ evidence\_{i}=\sum \_{j}W\_{ij}x\_{j}+b\_{i} $$
 ### <li> 素数
 
 ### <li> 最大公因子
-
-### <li>扩展欧几里得算法 
+ 
 辗转相除法
 ### <li>线性丢番图方程
 **定理** 设\\(a,b\\)是整数 
@@ -95,10 +104,42 @@ $$ evidence\_{i}=\sum \_{j}W\_{ij}x\_{j}+b\_{i} $$
 
 同余(英语：congruence modulo，符号：\\(\equiv\\))是数论中的一种等价关系。当两个整数除以同一个正整数，若得相同余数，则二整数同余。同余是抽象代数中的同余关系的原型。最先引用同余的概念与“≡”符号者为德国数学家高斯。
 ### <li>线性同余方程
-### <li>模逆元(模反元素) 
-  
+设\\(x\\)是未知数，形如
+$$ax \equiv b(mod \ m)$$
+的同余式称为_一元线性同余方程_.    
+线性同余方程\\(ax \equiv b(mod\ m)\\)等价于二元线性丢番图方程\\(ax-my=b\\)，整数\\(x\\)是\\(ax \equiv b(mod\ m)\\)的解当且仅当存在\\(y\\)使得\\(ax-my=b\\)    
+**定理** \\(\ \ \ \ \ \ \ \ 设a,b和m 是整数，m>0，(a,m)=d.若d \nmid b，则ax \equiv b(mod\ m)无解.若d \mid b， 则ax \equiv b(mod\ m)恰有d个模m不同余的解\\)
+> 定理证明略。 其中要用到线性丢番图的解的结论。     
+
+ 
+**推论** \\(若a和m>0互素，且b是整数，则线性同余方程ax\equiv b(mod \ m)有模m的唯一解\\)
+> **证明** 因为\\((a,m)=1，所以(a,m)|b\\)，因此，由上述定理，线性同余方程\\(ax \equiv b(mod\ m)\\)恰有\\((a,m)=1\\)个模\\(m\\)不同余的解。
+
+
+### <li>模的逆(模逆元、模反元素) 
+**模的逆** 考虑特殊形式的同余方程 \\(ax \equiv 1(mod \ m)\\),由上述线性同余方程给出的结论知，此方程有解当且仅当\\((a,m)=1\\),而且其所有的解都模\\(m\\)同余。       
+**定义** \\(给定整数a，且满足(a,m)=1，称ax \equiv 1(mod \ m)的一个解为a模m的逆\\)
+> **举例说明** \\(因为7x \equiv 1(mod\ 31)的一个解为9, 所以所有解x满足x \equiv 9(mod\ 31)\\);  
+> \\(也即9和所有与9模31同余的整数，都是7模31的逆，而且只有这些整数才是7模31的逆。\\)  
+> \\(比如9+31=40, 9+31\times2=71\\)    
+> \\(易知7\times40\equiv1(mod\ 31)，7\times71\equiv1(mod\ 31)\\)
+
+
+**记法** \\(\ \ \ a的模m的逆记为a^{-1}或者\overline{a}，则有aa^{-1}\equiv 1(mod\ m)或者a\overline{a} \equiv 1(mod\ m)\\)
+> 一些理解，\\(令a=7， 7\times9\equiv1(mod\ 31)，7\times40\equiv1(mod\ 31)\\)    
+>\\( 则9和40都是7模31的逆元，即\overline{a}=9,或者a^{-1}=9\\)  
+>\\(更精确的描述应该是\overline{a}\equiv 9(mod\ 31)或者a^{-1}\equiv 9(mod \ 31)\\)        
+
+
+**得出如下结论**
+> \\(若a\_{1},a\_{2}...a\_{k}...是a模m的逆，则有\\)
+> \\(\overline{a}\equiv a^{-1}\equiv a\_{1} \equiv a\_{2}\equiv...\equiv a\_{k}\equiv...(mod\ m)\\)
+> \\(而且只有与\overline{a}模m同余的这些整数才是a模m的逆\\)
+
+后续的欧拉定理对模的逆做更进一步探讨。
+
 ### <li>欧拉定理   
-欧拉定理再RSA加密算法中处于核心地位.
+欧拉定理在RSA加密算法中处于核心地位.  
 **定义** 设\\(n\\)是一个正整数，**欧拉\\(\varphi函数\varphi(n)\\)**定义为不超过\\(n\\)且与\\(n\\)互素的正整数的个数。
 <center> 欧拉函数\\(\varphi(n)\\)的值， \\(1\leq n \leq 12\\)  </center>  
 
@@ -148,9 +189,56 @@ $$ evidence\_{i}=\sum \_{j}W\_{ij}x\_{j}+b\_{i} $$
 可以利用欧拉定理来找寻模m的逆，若\\(a\\)和\\(m\\)互素则，
 $$a \cdot a^{\varphi(m)-1}=a^{\varphi(m)}\equiv 1(mod\ m)$$
 因此，\\(a^{\varphi(m)-1}\\) 是\\(a\\)模\\(m\\)的逆。
- 
-### <li> 费马小定理   
-欧拉定理的特殊情形 可以不说明
-### <li>RSA算法  
+
+**结论** 结合模的逆和欧拉定理,我们有如下结论    
+> \\(若a\_{1},a\_{2}...a\_{k}...是a模m的逆，则有\\)
+> \\(a^{\varphi(m)-1}\equiv \overline{a}\equiv a^{-1}\equiv a\_{1} \equiv a\_{2}\equiv...\equiv a\_{k}\equiv...(mod\ m)\\)
+> \\(而且只有与\overline{a}模m同余的这些整数才是a模m的逆\\)
+
+后面我们统一用\\(\overline{a}\\)记为\\(a模m\\)的逆。    
+结合同余中有关定理我们可以证明如下定理  
+\(注:这个定理是我自己推导出来的，RSA算法中暂时用不到这个结论，后续的文章中会用到。\)    
+
+
+**定理** \\(若a，b，k和m是整数，(a,m)=1， \overline{a}为a模m的逆，即a\overline{a}\equiv 1 (mod \ m),则\overline{a}^{k} \equiv \overline{a^{k}}\\)
+>**证明**
+>由前面的结论知
+>$$a^{\varphi(m)-1}\equiv \overline{a}(mod \ m)$$
+>两边同取\\(k\\)次方
+>$$\overline{a}^{k}\equiv (a^{\varphi(m)-1})^{k} =(a^{k})^{\varphi(m)-1} \equiv \overline{a^{k}}$$
+>
+
+### <li>欧拉函数的性质  
+**定理10.1** 
+$$如果p是素数，那么\varphi(p)=p-1.反之，如果p是正整数且满足\varphi(p)=p-1，那么p是素数.$$ 
+**定理10.2**
+$$设m和n是互素的正整数，即(m,n)=1，那么\varphi(mn)=\varphi(m)\varphi(n)$$
+
+
 </ol>   <!---跟三级标题匹配--> 
+
+## <li>RSA算法  
+有了以上这些结论，我们可以推导出RSA加密算法.
+
+ 
+### 公钥和私钥的的生成步骤
+> **RSA公钥和密钥生成**    
+> **输出** 公钥:\\((e,n)和私钥d\\)    
+> 1. 选择两个大素数\\(p和q\\)    
+> 2. 计算 \\(n=pq\\)    
+> 3. 计算\\(\varphi(n)=\varphi(pq)=\varphi(p)\varphi(q)=(p-1)(q-1)\\)    
+> 4. 选择整数\\(e\\)，使得\\((e,\varphi(n))=1\\)
+> 5. 计算满足以下条件的私钥\\(d\\)    
+> $$d \cdot e \equiv 1 \ \ mod(\varphi(n))$$
+
+### RSA算法的证明
+
+
 </ol>   <!---匹配二级标题--> 
+
+
+
+
+
+
+
