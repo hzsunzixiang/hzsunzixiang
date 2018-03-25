@@ -108,11 +108,11 @@ $$ evidence\_{i}=\sum \_{j}W\_{ij}x\_{j}+b\_{i} $$
 $$ax \equiv b(mod \ m)$$
 的同余式称为_一元线性同余方程_.    
 线性同余方程\\(ax \equiv b(mod\ m)\\)等价于二元线性丢番图方程\\(ax-my=b\\)，整数\\(x\\)是\\(ax \equiv b(mod\ m)\\)的解当且仅当存在\\(y\\)使得\\(ax-my=b\\)    
-**定理** \\(\ \ \ \ \ \ \ \ 设a,b和m 是整数，m>0，(a,m)=d.若d \nmid b，则ax \equiv b(mod\ m)无解.若d \mid b， 则ax \equiv b(mod\ m)恰有d个模m不同余的解\\)
+**定理7.1** \\(\ \ \ \ \ \ \ \ 设a,b和m 是整数，m>0，(a,m)=d.若d \nmid b，则ax \equiv b(mod\ m)无解.若d \mid b， 则ax \equiv b(mod\ m)恰有d个模m不同余的解\\)
 > 定理证明略。 其中要用到线性丢番图的解的结论。     
 
  
-**推论** \\(若a和m>0互素，且b是整数，则线性同余方程ax\equiv b(mod \ m)有模m的唯一解\\)
+**推论7.1.1** \\(若a和m>0互素，且b是整数，则线性同余方程ax\equiv b(mod \ m)有模m的唯一解\\)
 > **证明** 因为\\((a,m)=1，所以(a,m)|b\\)，因此，由上述定理，线性同余方程\\(ax \equiv b(mod\ m)\\)恰有\\((a,m)=1\\)个模\\(m\\)不同余的解。
 
 
@@ -125,8 +125,9 @@ $$ax \equiv b(mod \ m)$$
 > \\(易知7\times40\equiv1(mod\ 31)，7\times71\equiv1(mod\ 31)\\)
 
 
-**记法** \\(\ \ \ a的模m的逆记为a^{-1}或者\overline{a}，则有aa^{-1}\equiv 1(mod\ m)或者a\overline{a} \equiv 1(mod\ m)\\)
-> 一些理解，\\(令a=7， 7\times9\equiv1(mod\ 31)，7\times40\equiv1(mod\ 31)\\)    
+**记法** \\(\ \ \ a的模m的逆记为a^{-1}或者\overline{a}，则有aa^{-1}\equiv 1(mod\ m)或者a\overline{a} \equiv 1(mod\ m)\\)    
+**举例说明**    
+> \\(令a=7， 7\times9\equiv1(mod\ 31)，7\times40\equiv1(mod\ 31)\\)    
 >\\( 则9和40都是7模31的逆元，即\overline{a}=9,或者a^{-1}=9\\)  
 >\\(更精确的描述应该是\overline{a}\equiv 9(mod\ 31)或者a^{-1}\equiv 9(mod \ 31)\\)        
 
@@ -184,35 +185,83 @@ $$ax \equiv b(mod \ m)$$
 > 故由推论(4.5.1TODO)，知，\\(a^{\varphi(m)}\equiv 1(mod\ m)\\)
 > 定理得证。
 
+**一点说明**
+> \\(这里的a和m不要求为素数，只要满足(a,m)=1\\)
+> 而后面的费马小定理则要求模数是素数.
+>
+
+**举例说明**
+
+>\\(令a = 4， m = 9，满足(a,m)=1且\varphi(9)=6\\)       
+>此时有
+>\\(a^{\varphi(m)} =4^{6}=4096 \equiv 1(mod \ 9)\\)
 
 
 可以利用欧拉定理来找寻模m的逆，若\\(a\\)和\\(m\\)互素则，
 $$a \cdot a^{\varphi(m)-1}=a^{\varphi(m)}\equiv 1(mod\ m)$$
 因此，\\(a^{\varphi(m)-1}\\) 是\\(a\\)模\\(m\\)的逆。
 
+**举例说明**
+> 
+> \\(7x \equiv 1(mod\ 10)，求x\\)    
+> \\(令a=7，m=10，此时有(a,m)=1，\varphi(m)=\varphi(10)=4，所以\\)    
+> \\(7模10的逆为7^{\varphi(10)-1}=7^{3}=343\equiv 3(mod\ 10)\\)    
+> \\(所以7模10的逆x\equiv 3(mod10)\\)
+
 **结论** 结合模的逆和欧拉定理,我们有如下结论    
 > \\(若a\_{1},a\_{2}...a\_{k}...是a模m的逆，则有\\)
 > \\(a^{\varphi(m)-1}\equiv \overline{a}\equiv a^{-1}\equiv a\_{1} \equiv a\_{2}\equiv...\equiv a\_{k}\equiv...(mod\ m)\\)
 > \\(而且只有与\overline{a}模m同余的这些整数才是a模m的逆\\)
 
-后面我们统一用\\(\overline{a}\\)记为\\(a模m\\)的逆。    
-结合同余中有关定理我们可以证明如下定理  
-\(注:这个定理是我自己推导出来的，RSA算法中暂时用不到这个结论，后续的文章中会用到。\)    
+后面我们统一用\\(\overline{a}\\)记为\\(a模m\\)的逆。 
 
-
-**定理** \\(若a，b，k和m是整数，(a,m)=1， \overline{a}为a模m的逆，即a\overline{a}\equiv 1 (mod \ m),则\overline{a}^{k} \equiv \overline{a^{k}}\\)
->**证明**
+   
+结合同余中有关定理我们可以证明如下定理:  
+\(注:这个定理是我自己推导出来的，RSA算法中暂时用不到这个结论，可以先略过，后续的文章中会用到。\)    
+**定理** \\(若a，b，k和m是整数，(a,m)=1，则\overline{a}^{k} \equiv \overline{a^{k}} \equiv a^{-k} (mod \ m) ,其中\overline{a}为a模m的逆，即a\overline{a}\equiv 1 (mod \ m).\\)
+>**证明**    
+>\\(首先(a,m)=1，保证了a模m的逆\overline{a}存在\\)    
 >由前面的结论知
 >$$a^{\varphi(m)-1}\equiv \overline{a}(mod \ m)$$
 >两边同取\\(k\\)次方
->$$\overline{a}^{k}\equiv (a^{\varphi(m)-1})^{k} =(a^{k})^{\varphi(m)-1} \equiv \overline{a^{k}}$$
+>$$\overline{a}^{k}\equiv (a^{\varphi(m)-1})^{k} =(a^{k})^{\varphi(m)-1} \equiv \overline{a^{k}}(mod \ m)$$
 >
+
+**举例说明**
+> \\(以3x \equiv 1(mod\ 5)为例\\)  
+> \\(令a=3，\overline{a}=2，m=5，k=3\\)      
+> \\(\overline{a}^{3}=2^{3}=8 \equiv 3(mod \ 5)\\)  
+> \\(而a^{3}=3^{3}=27\\)    
+> \\(27y \equiv 1(mod \ 5)，用扩展欧几里得算法或者欧拉公式求出y\equiv 3(mod5)\\)  
+> \\(也就是\overline{a}^{3}\equiv \overline{a^{3}} \equiv3(mod \ 5) \\)
+ 
 
 ### <li>欧拉函数的性质  
 **定理10.1** 
 $$如果p是素数，那么\varphi(p)=p-1.反之，如果p是正整数且满足\varphi(p)=p-1，那么p是素数.$$ 
+> 根据欧拉函数的定义，这个是显然的.    
+>
+
 **定理10.2**
 $$设m和n是互素的正整数，即(m,n)=1，那么\varphi(mn)=\varphi(m)\varphi(n)$$
+
+###<li> 费马小定理
+**注**：书籍上会先引进并证明_费马小定理_，然后再证明_欧拉定理_，这里把_费马小定理_看成_欧拉定理_的特殊情况来证明。   
+_**费马小定理**_在证明_**RSA算法**_的其中一种情况时用到。    
+**定理11.1(费马小定理)**  \\(设p是一个素数，a是一个正整数且(a,p)=1，则a^{p-1} \equiv 1(mod \ p)\\)    
+> **证明**     
+> 由定理10.1 \\(因为p是素数，所以有\varphi(p)=p-1\\)    
+> 根据欧拉定理     
+> $$a^{p-1} = a^{\varphi(p)}\equiv 1(mod\ p)$$
+> 所以    
+> $$a^{p-1}  \equiv 1(mod\ p)$$
+
+
+**举例说明**
+>
+>\\(令a = 2， p = 7，满足p是素数且(a,p)=1\\)       
+>此时有
+>\\(a^{p-1} =2^{7-1}=64 \equiv 1(mod \ 7)\\)
 
 
 </ol>   <!---跟三级标题匹配--> 
@@ -223,16 +272,29 @@ $$设m和n是互素的正整数，即(m,n)=1，那么\varphi(mn)=\varphi(m)\varp
  
 ### 公钥和私钥的的生成步骤
 > **RSA公钥和密钥生成**    
-> **输出** 公钥:\\((e,n)和私钥d\\)    
-> 1. 选择两个大素数\\(p和q\\)    
+> **输出** : 公钥\\((e,n)和私钥d\\)    
+> 1. 选择两个大素数\\(p和q\\)，则一定有\\((p,q)=1\\)  
 > 2. 计算 \\(n=pq\\)    
 > 3. 计算\\(\varphi(n)=\varphi(pq)=\varphi(p)\varphi(q)=(p-1)(q-1)\\)    
-> 4. 选择整数\\(e\\)，使得\\((e,\varphi(n))=1\\)
+> 4. 选择整数\\(e\\)，使得\\((e,\varphi(n))=1\\)    
 > 5. 计算满足以下条件的私钥\\(d\\)    
 > $$d \cdot e \equiv 1 \ \ mod(\varphi(n))$$
+>
+>其中,第3步是依据定理10.1,10.2而得    
+>根据推论7.1.1，第4步可以保证\\(e模\varphi(n)的模逆元d\\)存在，      
+>在选择\\(e的过程中，如果(e,\varphi(n)) \not= 1\\),则选择一个新的\\(e\\)值，并重复此过程.       
+
+
+
+>加密报文X 属于[0,n) 
+>两种情况 \\((X,n)=1, (X,n)\not=1\\)
+>第一种情况用欧拉定理证明
+>第二种情况用费马小定理结合同余的一个定理4.9得出结论
+>
+
 
 ### RSA算法的证明
-
+xxx
 
 </ol>   <!---匹配二级标题--> 
 
