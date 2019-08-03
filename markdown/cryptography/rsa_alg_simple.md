@@ -237,9 +237,31 @@ $$  d\_{k\_{pr}} (y) \equiv x^{de} \equiv x^{1+t\dot\varphi(n)}  \equiv x^{t\dot
 
 
 **第二种情况** 
- $$若(x,n)\not =1$$
- 
+ $$若(x,n) = (x, p\cdot q) \not=1$$
+ 分别证明 
+$$  d\_{k\_{pr}} (y) \equiv  x (mod \ p)$$
+$$  d\_{k\_{pr}} (y) \equiv  x (mod \ q)$$
+由辅助定理可得
+ $$ d\_{k\_{pr}} (y) \equiv  x \ (mod \ p\cdot q)$$
+即
+ $$ d\_{k\_{pr}} (y) \equiv  x \ (mod \ n)$$
+只要证明其中之一即可,首先证明 \not  
+>$$  d\_{k\_{pr}} (y) \equiv  x (mod \ p)$$
+
+此时亦分两种情况    
+*情况一 使用费马小定理* 
+>$$x \not \equiv 0 (mod\ p) \Rightarrow (x,p) =1$$
+此时有
+$$  d\_{k\_{pr}} (y)  \equiv x^{t\dot\varphi(n)}\cdot x^1  \equiv x^{t(p-1)(q-1)}  \cdot x \equiv (x^{p-1})^{t(q-1)} \cdot x(mod \ p)$$
+由费马小定理    
+$$(x,p)=1，则x^{p-1} \equiv 1(mod \ p)$$
+可得
+$$  d\_{k\_{pr}} (y)  \equiv (x^{p-1})^{t(q-1)} \cdot x \equiv x(mod \ p)$$
 
 
+*情况二*
+>$$x  \equiv 0 (mod\ p)$$
+>可得
+ $$d\_{k\_{pr}} (y)  \equiv x^{ed} \equiv 0  \equiv x(mod\ p)$$
 
-
+算法得证
