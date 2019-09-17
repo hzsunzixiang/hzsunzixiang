@@ -500,10 +500,57 @@ DSA密钥的计算方式如下:
 
 $$
 v\begin{cases}
-\equiv \ r \ \ \ \  \Rightarrow  \ \ \ \ 有效的签名\\\\ 
-\not \equiv \ r \ \ \ \  \Rightarrow  \ \ \ \  无效的签名 
+\equiv \ r mod q\ \ \ \  \Rightarrow  \ \ \ \ 有效的签名\\\\ 
+\not \equiv \ r  mod q\ \ \ \  \Rightarrow  \ \ \ \  无效的签名 
 \end{cases}
 $$
+
+只有在满足条件\\(v \equiv r mod \ q\\)时，验证者才会接受签名\\((r,s)\\);否则，验证失败。
+
+**证明**
+要证明\\(v \equiv r\\), 即要证明 \\((\alpha^{u\_1} \cdot \beta^{u\_2} mod\ p) mod \q \equiv \alpha^{k\_{E}} mod \ p mod \ q\\)      
+首先看签名参数\\(s\\)    
+$$s\equiv(SHA(x)+d\cdot r)k\_{E}^{-1} mod \ q$$
+其等价于:    
+$$k\_{E} \equiv s^{-1}SHA(x) + d \cdot s^{-1}r mod \ q$$    
+右边的值可以使用辅助参值\\(u\_1\\)和\\(u\_2\\)表示    
+$$k\_{E} \equiv u\_1 + d \cdot u\_2 mod \ q$$        
+根据推论4.2.2可得
+$$\alpha^{k\_{E}} mod p \equiv \alpha^{u\_1 + d \cdot u\_2} mod \ p$$            
+由于公钥值\\(\beta\\)的计算公式为\\(\beta \equiv \alpha^{d} mod \p\\),上式可以写为:    
+$$\alpha^{k\_{E}} mod p \equiv \alpha^{u\_1}\beta^{u\_2} mod \ p$$                
+两边同时模\\(q\\)
+$$(\alpha^{k\_{E}} mod\ p)mod q \equiv (\alpha^{u\_1}\beta^{u\_2} mod \ p)mod q$$                
+命题从而得证。    
+
+
+**6.2 实例** 下面给出一个DSA签名处理较小整数的例子。      
+Bob想发送一个消息给Alice，使用DSA数字签名方案对消息进行签名。假设\\(x\\)的hash值为\\(h(x)=26\\), 对应的签名和验证过程为:    
+
+ 
+　　　　　　　　　　　　\\(Alice\\)　　　　　　　　　　　　\\(Bob\\) 　　　　　　　　　
+    
+　　　　　　　　　　　　　　　　　　　　　　　　　　1.选择\\(p=59\\)      
+　　　　　　　　　　　　　　　　　　　　　　　　　　2.选择\\(q=29\\)      
+　　　　　　　　　　　　　　　　　　　　　　　　　　3.寻找到\\(\alpha=3\\)使得\\(ord\_{p}(3)=29\\),后面给出列表. 
+　　　　　　　　　　　　　　　　　　　　　　　　　　4.选择私钥\\(d=7\\)      
+　　　　　　　　　　　　　　　　　　　　　　　　　　5.从而\\(\beta=\alpha^d\equiv 4 mod 59\\)   
+$$
+\underleftarrow{\text{\\((p,q,\alpha,\beta)=(59,29,2,7)\\)}}
+$$   
+　　　　　　　　　　　　　　　　　　　　　　　　　　计算消息\\(h(x)=26\\)的签名     
+　　　　　　　　　　　　　　　　　　　　　　　　　　1.选择临时密钥\\(k\_E=10,使得gcd(10,29)=1\\),
+　　　　　　　　　　　　　　　　　　　　　　　　　　2.\\(r=\alpha^{k\_E} mod \ p mod \q  = (3^10 mod\ 59)mod\ q \equiv 20 mod \ 29\\) 　　
+　　　　　　　　　　　　　　　　　　　　　　　　　　3.\\s\equiv((SHA(x)+d\cdot r)k\_{E}^{-1} mod \ q) \equiv (26+7\cdot20) \cdot 3 \equiv 5 mod\ 29 \\)   
+$$
+\underleftarrow{\text{\\((x(r,s))=(26,(20,5))\\)}}
+$$ 　　
+\\(Alice\\)验证:        
+1. \\(w=5^{-1} \equiv 6 mod\ 29\\)　
+2. \\(u\_{1}=6\cdot 26\equiv 11 mod\ 29\\)　
+3. \\(u\_{2}=6\cdot 20\equiv 4 mod\ 29\\)　
+4. \\(v=(3^{11}\cdot 4^4 mod \ 59) mod\ 29 = 20\\)　
+5. \\(v \equiv r mod 29 \ \  \Rightarrow \ \  有效的签名 \\)　            
 
 
 
