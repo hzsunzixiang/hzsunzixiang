@@ -454,12 +454,12 @@ $$ 　　
 \\(\alpha^x\equiv2^{26}\equiv 22 mod29\\)　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
 \\(t=\alpha^x mod 29 \ \  \Rightarrow \ \  有效的签名 \\)　            
 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
-#****
+******
 
 # 6. DSA数字签名算法 
 上述描述的Elgamal数字签名算法在实际中很少使用。相反，常用的是一种更为流行的变体,即数字签名算法(DSA),此算法是联邦美国政府在数字签名方面的标准，并有国家标准与技术局(NIST)提出.数字签名算法比Elgamal数字签名方案优胜的地方在于，其签名长度仅为320位，而且某些可以破解Elgamal方案的攻击却不适用于此方案.        
 
-Elgamal签名算法和DSA数字签名算法在数学上的差异参考推论4.2.1和4.2.2.        
+Elgamal签名算法和DSA数字签名算法在数学证明上的差异参考推论4.2.1和4.2.2.        
 **6.1 DSA算法**     
 这里主要介绍长度为1024位的DSA标准。注意：标准也允许更长的密钥长度.    
 
@@ -469,12 +469,12 @@ DSA密钥的计算方式如下:
 **DSA的密钥生成**    
 1. 生成一个素数\\(p\\),且 \\(2^{1023} \le p \le 2^{1024}\\)    
 2. 找到\\(p-1\\)的一个素除数\\(q\\), 且\\(2^{159} \le p \le 2^{160}\\)       
-3. 找到\\(ord\_p(\alpah)=q的元素\alpha\\), 即\\(\alpha\\)生成了拥有\\(q\\)的一个集合。    
+3. 找到\\(ord\_p(\alpha)=q的元素\alpha\\), 即\\(\alpha\\)生成了拥有\\(q\\)的一个集合。    
 4. 选择一个随机整数\\(d\\),且 \\( 0 \le d \le q\\)    
 5. 计算\\(\beta \equiv \alpha^d mod \ p\\)    
 则密钥为:       
-\\(k\_(pub)=(p,q,\alpha,\beta)\\)    
-\\(k\_(pr)=(d)\\)    
+\\(k\_{pub}=(p,q,\alpha,\beta)\\)    
+\\(k\_{pr}=(d)\\)    
 
 **以29作为例子**
 
@@ -491,24 +491,24 @@ DSA密钥的计算方式如下:
  
 根据标准,为了计算\\(x\\)必须先使用哈希函数SHA-1对消息\\(x\\)进行哈希。
 
-**DSA签名验证**
-1. 计算辅助值\\(w=s^{-1} \ mod\ q\\)
-2. 计算辅助值\\(u\_1=w \cdot SHA(x) mod\ q\\)
-3. 计算辅助值\\(u\_2=w \cdot r mod\ q\\)
-4. 计算\\v \equiv (\alpha^{u\_{1} \cdot  \beta^{u\_2}}mod \ p  ) \\)
-5. 验证函数\\(ver\_{k\_{pub}}(x,(r,x)) \\)的结果为:
+**DSA签名验证**    
+1. 计算辅助值\\(w=s^{-1} \ mod\ q\\)    
+2. 计算辅助值\\(u\_1=w \cdot SHA(x) mod\ q\\)    
+3. 计算辅助值\\(u\_2=w \cdot r mod\ q\\)    
+4. 计算\\(v \equiv (\alpha^{u\_{1} \cdot  \beta^{u\_2}}mod \ p) modq\\)    
+5. 验证函数\\(ver\_{k\_{pub}}(x,(r,x)) \\)的结果为:    
 
 $$
 v\begin{cases}
-\equiv \ r mod q\ \ \ \  \Rightarrow  \ \ \ \ 有效的签名\\\\ 
-\not \equiv \ r  mod q\ \ \ \  \Rightarrow  \ \ \ \  无效的签名 
+\equiv \ r \ mod q\ \ \ \  \Rightarrow  \ \ \ \ 有效的签名\\\\ 
+\not \equiv \ r \   mod q\ \ \ \  \Rightarrow  \ \ \ \  无效的签名 
 \end{cases}
 $$
 
-只有在满足条件\\(v \equiv r mod \ q\\)时，验证者才会接受签名\\((r,s)\\);否则，验证失败。
+只有在满足条件\\(v \equiv r \ mod \ q\\)时，验证者才会接受签名\\((r,s)\\);否则，验证失败。
 
 **证明**
-要证明\\(v \equiv r\\), 即要证明 \\((\alpha^{u\_1} \cdot \beta^{u\_2} mod\ p) mod \q \equiv \alpha^{k\_{E}} mod \ p mod \ q\\)      
+要证明\\(v \equiv r\\), 即要证明 \\((\alpha^{u\_1} \cdot \beta^{u\_2} mod\ p) mod \ q \equiv \alpha^{k\_{E}} mod \ p mod \ q\\)      
 首先看签名参数\\(s\\)    
 $$s\equiv(SHA(x)+d\cdot r)k\_{E}^{-1} mod \ q$$
 其等价于:    
@@ -517,7 +517,7 @@ $$k\_{E} \equiv s^{-1}SHA(x) + d \cdot s^{-1}r mod \ q$$
 $$k\_{E} \equiv u\_1 + d \cdot u\_2 mod \ q$$        
 根据推论4.2.2可得
 $$\alpha^{k\_{E}} mod p \equiv \alpha^{u\_1 + d \cdot u\_2} mod \ p$$            
-由于公钥值\\(\beta\\)的计算公式为\\(\beta \equiv \alpha^{d} mod \p\\),上式可以写为:    
+由于公钥值\\(\beta\\)的计算公式为\\(\beta \equiv \alpha^{d} mod \ p\\),上式可以写为:    
 $$\alpha^{k\_{E}} mod p \equiv \alpha^{u\_1}\beta^{u\_2} mod \ p$$                
 两边同时模\\(q\\)
 $$(\alpha^{k\_{E}} mod\ p)mod q \equiv (\alpha^{u\_1}\beta^{u\_2} mod \ p)mod q$$                
@@ -539,28 +539,30 @@ $$
 \underleftarrow{\text{\\((p,q,\alpha,\beta)=(59,29,2,7)\\)}}
 $$   
 　　　　　　　　　　　　　　　　　　　　　　　　　　计算消息\\(h(x)=26\\)的签名     
-　　　　　　　　　　　　　　　　　　　　　　　　　　1.选择临时密钥\\(k\_E=10,使得gcd(10,29)=1\\),
-　　　　　　　　　　　　　　　　　　　　　　　　　　2.\\(r=\alpha^{k\_E} mod \ p mod \q  = (3^10 mod\ 59)mod\ q \equiv 20 mod \ 29\\) 　　
-　　　　　　　　　　　　　　　　　　　　　　　　　　3.\\s\equiv((SHA(x)+d\cdot r)k\_{E}^{-1} mod \ q) \equiv (26+7\cdot20) \cdot 3 \equiv 5 mod\ 29 \\)   
+　　　　　　　　　　　　　　　　　　　　　　　　　　1.选择临时密钥\\(k\_E=10,使得gcd(10,29)=1\\),    
+　　　　　　　　　　　　　　　　　　　　　　　　　　2.\\(r=(\alpha^{k\_E}\  mod \ p mod \ q) = (3^{10} mod\ 59)mod\ q \equiv 20 mod \ 29\\)   
+　　　　　　　　　　　　　　　　　　　　　　　　　　            　　    
+　　　　　　　　　　　　　　　　　　　　　　　　　　3.\\(s\equiv((SHA(x)+d\cdot r)k\_{E}^{-1} mod \ q) \equiv (26+7\cdot20) \cdot 3 \equiv 5 mod\ 29 \\)       
 $$
 \underleftarrow{\text{\\((x(r,s))=(26,(20,5))\\)}}
 $$ 　　
 \\(Alice\\)验证:        
-1. \\(w=5^{-1} \equiv 6 mod\ 29\\)　
-2. \\(u\_{1}=6\cdot 26\equiv 11 mod\ 29\\)　
-3. \\(u\_{2}=6\cdot 20\equiv 4 mod\ 29\\)　
-4. \\(v=(3^{11}\cdot 4^4 mod \ 59) mod\ 29 = 20\\)　
-5. \\(v \equiv r mod 29 \ \  \Rightarrow \ \  有效的签名 \\)　            
+1. \\(w=s^{-1} = 5^{-1} \equiv 6 mod\ 29\\)　         
+2. \\(u\_{1}=w \cdot SHA(x)=6\cdot 26\equiv 11 mod\ 29\\)        
+3. \\(u\_{2}=w \cdot r = 6\cdot 20\equiv 4 mod\ 29\\)　         
+4. \\(v=\equiv (\alpha^{u\_{1} \cdot  \beta^{u\_2}}mod \ p) modq=(3^{11}\cdot 4^4 mod \ 59) mod\ 29 = 20\\)    
+5. \\(v \equiv r mod 29 \ \  \Rightarrow \ \  有效的签名 \\)　                    
 
-
-**6.3 几点说明** 
-1. 上例中\\(p=59\\), \\(q\\)的值为什么可以取29
-根据 **定理4.1** 如果 \\(a\\)和\\(n\\)是互素的整数，且\\(n>0\\)，那么\\(ord\_{n}a|\varphi(n)\\)。        
+**6.3 几点说明**         
+1. 上例中\\(p=59\\), \\(q\\)的值为什么可以取29?        
+>根据 **定理4.1** 如果 \\(a\\)和\\(n\\)是互素的整数，且\\(n>0\\)，那么\\(ord\_{n}a|\varphi(n)\\)。        
 由于\\(p=59\\)是素数,  则\\(ord\_{59}a|\varphi(59)\\),也就是\\(ord\_{59}a|58\\)        
 \\(58=2\cdot29\\), 所以\\(q\\)的取值只可能是2或者29    
 更一般的，如果\\(p\\)是素数,则 \\(\frac{\varphi(n)-1}{2}\\) 一定是\\(p\\)的一个阶。         
 
-2. \\(ord\_{59}(3)=29\\) 
+
+
+2.\\(ord\_{59}(3)=29\\)    
 
 |  \\(k\\)        |   1|   2|   3|    4|   5|   6|   7|   8|   9|  10|  11|  12| 
 |            :--: |:--:|:--:|:--:| :--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
@@ -583,60 +585,52 @@ $$ 　　
 |$$3^k(mod\ 59)$$ |  41|   5|  15|   45|  17|  51|  35|  46|  20|   1|   3|   9| 
 
 可以看出:     
-\\(p=59, q=29, 对于k \in (1,q),  3^k(mod\ 59) \in (1,p-1)\\)      
-是阶为\\(q\\)的生成元\\(\alpha\\)的取值范围为\\(\alpha \in (2,p-1)\\)而不仅限于\\(\alpha \in (2,q-1)\\)     
+1. \\(p=59, q=29, 当k \in (1,q)时,  3^k(mod\ 59) \in (1,p-1)\\)      
+2. 阶为\\(q\\)的生成元\\(\alpha\\)的取值范围为\\(\alpha \in (2,p-1)\\)，而不仅限于\\(\alpha \in (2,q-1)\\)     
 下列都是关于59阶为29的生成元
 \\(3,4,5,7,9,12,15,16,17,19,20,21,22,25,26,27,28,29,35,36,41,45,46,48,49,51,53,57\\)
+这是理解openssl的生成密钥的一个关键.
 
-#****
+*****
 ## 7. openssl实例
-
-
-openssl dsaparam -noout -out dsakey.pem -genkey 32
-
-
-openssl dsaparam 最小为512bit 以一个最小的为例
-
-ericksun@debian-2:~/programming/cryptography/openssl/openssl/dsa$ openssl dsa -in dsakey.pem -text
-read DSA key
-Private-Key: (512 bit)
-priv:
+下面给出openssl关于dsa生成密钥的命令。            
+openssl dsaparam 用于生成DSA参数，最小长度为512bit,以512bit为例         
+有了上面的铺垫，其输出参数就可以阐述清楚了。        
+**1. openssl dsaparam -noout -out dsakey_512.pem -genkey 512**        
+**2. openssl dsa -in dsakey_512.pem -text**             
+>Private-Key: (512 bit)
+priv:        
     60:53:7d:11:f5:2a:c8:61:b3:b3:f3:bd:dd:76:ff:
-    22:65:ec:6e:56
-pub:
+    22:65:ec:6e:56        
+pub:         
     06:18:a8:42:6d:f6:6b:bd:2d:22:10:db:d2:2d:81:
     ec:5e:1b:64:a9:12:a5:7a:87:62:fa:fd:96:1e:a9:
     6e:c0:18:f5:5c:89:3f:fd:d7:c4:94:83:4e:a4:db:
     35:3b:5e:30:69:8d:ca:12:1c:88:9b:2a:3f:0c:54:
-    e7:51:6d:bd
-P:
+    e7:51:6d:bd        
+P:        
     00:b9:05:de:ec:c4:a2:ef:4b:3c:0b:61:95:67:6b:
     31:55:aa:43:f3:75:03:4c:4b:54:8c:ca:67:96:ef:
     7d:d9:e7:db:d2:30:40:ce:9f:a5:2d:08:c5:0d:7b:
     43:98:01:f3:eb:c4:0c:69:ae:1f:a9:fe:b1:61:73:
-    43:d2:c6:3d:19
-Q:
+    43:d2:c6:3d:19        
+Q:        
     00:94:7a:38:31:fa:f4:4c:80:44:f1:d5:2f:dd:47:
-    74:cc:91:6a:1f:2b
-G:
+    74:cc:91:6a:1f:2b         
+G:        
     00:9b:2d:c1:0e:77:5b:8b:c8:f6:7d:fc:83:77:57:
     6a:f4:c2:a9:85:ac:8d:00:58:43:16:70:7e:fc:b8:
     dd:7c:54:c4:9f:c2:fd:87:99:0a:e8:cc:9b:6b:99:
     16:ec:ca:9d:fb:ae:d6:87:57:ab:60:e1:3a:37:43:
-    95:19:18:5b:10
-writing DSA key
------BEGIN DSA PRIVATE KEY-----
-MIH4AgEAAkEAuQXe7MSi70s8C2GVZ2sxVapD83UDTEtUjMpnlu992efb0jBAzp+l
-LQjFDXtDmAHz68QMaa4fqf6xYXND0sY9GQIVAJR6ODH69EyARPHVL91HdMyRah8r
-AkEAmy3BDndbi8j2ffyDd1dq9MKphayNAFhDFnB+/LjdfFTEn8L9h5kK6Myba5kW
-7Mqd+67Wh1erYOE6N0OVGRhbEAJABhioQm32a70tIhDb0i2B7F4bZKkSpXqHYvr9
-lh6pbsAY9VyJP/3XxJSDTqTbNTteMGmNyhIciJsqPwxU51FtvQIUYFN9EfUqyGGz
-s/O93Xb/ImXsblY=
------END DSA PRIVATE KEY-----
+    95:19:18:5b:10        
 
-#****
+3.参数阐述
+>\\(P\\)是所选择的大素数        
+\\(Q是G模P的阶，也就是Q是阶，G是其中一个阶为Q的生成元，G^Q\equiv 1 mod \ P\\)        
+\\(priv是私钥，pub是公钥，即有G^{priv} \equiv pub \ mod \ P\\)    
 
-
+4.参数验证    
+*****
 **参考文献**
 1. 《深入浅出密码学——常用加密技术原理与应用》    
 2. 《初等数论及其应用第五版》    
