@@ -8,11 +8,12 @@ n = 59
 #        print "\n"
 
 print "\n\n"
-for i in range(30,59):
+for i in range(2,59):
     for x in range(1, 61):
         #print("   %s|"%(i**x % n)),
-        if i**x % n == 1:
-            print "i:%s, x:%s"%(i,x)
+        if i**x % n == 1 and x==29:
+            #print "i:%s, x:%s"%(i,x)
+            print "%s,"%(i)
             break 
         #if x%12==0:
         #    print "\n"
