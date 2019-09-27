@@ -596,7 +596,7 @@ $$ 　　
 
 *****
 ## `7. openssl实例`
-下面给出openssl关于dsa生成密钥的命令。            
+下面给出openssl关于DSA生成密钥的命令。            
 openssl dsaparam 用于生成DSA参数，最小长度为512bit,以512bit为例         
 有了上面的铺垫，其输出参数就可以阐述清楚了。        
 **`1. openssl dsaparam -noout -out dsakey_512.pem -genkey 512`**       
