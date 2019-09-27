@@ -1,7 +1,7 @@
 .PHONY:clean all
 CC=g++
 CFLAGS=-Wall -g -lgmp
-BIN=dsa_alg 
+BIN=dsa_alg_512
 all:$(BIN)
 %:%.cpp 
 	$(CC) $(CFLAGS)   $< -o $@
