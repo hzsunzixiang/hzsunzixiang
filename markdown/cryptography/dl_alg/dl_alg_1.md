@@ -481,8 +481,6 @@ DSA密钥的计算方式如下:
 \\(k\_{pub}=(p,q,\alpha,\beta)\\)    
 \\(k\_{pr}=(d)\\)    
 
-**以29作为例子**
-
 
 **`2. 签名与验证`**    
 与Elgamal数字签名方案相同，DSA签名也包含一对整数\\((r,s)\\). 由于这两个参数的长度都是160位，所以签名总长度为320位。使用公钥和私钥对消息\\(x\\)签名的计算方法为:        
@@ -601,8 +599,10 @@ $$ 　　
 下面给出openssl关于dsa生成密钥的命令。            
 openssl dsaparam 用于生成DSA参数，最小长度为512bit,以512bit为例         
 有了上面的铺垫，其输出参数就可以阐述清楚了。        
-**`1. openssl dsaparam -noout -out dsakey_512.pem -genkey 512`**        
-**`2. openssl dsa -in dsakey_512.pem -text`**             
+**`1. openssl dsaparam -noout -out dsakey_512.pem -genkey 512`**       
+上面命令可以生成一个512bit的密钥，输出到文件dsakey_512.pem            
+**`2. openssl dsa -in dsakey_512.pem -text`**         
+输出密钥的详细信息            
 >Private-Key: (512 bit)
 priv:        
     60:53:7d:11:f5:2a:c8:61:b3:b3:f3:bd:dd:76:ff:
